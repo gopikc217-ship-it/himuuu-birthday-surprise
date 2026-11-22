@@ -30,6 +30,7 @@
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
   margin:0;
   min-height:100vh;
@@ -40,6 +41,7 @@ body{
   font-family:"Lato",sans-serif;
   overflow-x:hidden;
 }
+
 body::before{
   content:"";
   position:fixed;
@@ -49,12 +51,11 @@ body::before{
   opacity:.13;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
 }
+
 button{font-family:inherit}
 .hidden{display:none!important}
 
-/* =========================================
-   THEATRE ENTRANCE — CLOSED CURTAINS
-========================================= */
+/* THEATRE ENTRANCE */
 
 .opening{
   position:fixed;
@@ -69,11 +70,13 @@ button{font-family:inherit}
     #10080d;
   transition:opacity .9s ease,visibility .9s ease;
 }
+
 .opening.dismissed{
   opacity:0;
   visibility:hidden;
   pointer-events:none;
 }
+
 .opening-inner{
   width:min(500px,100%);
   text-align:center;
@@ -84,6 +87,7 @@ button{font-family:inherit}
   box-shadow:0 0 100px rgba(112,40,62,.25),inset 0 0 35px rgba(178,138,104,.04);
   animation:entranceCard 1.2s ease both;
 }
+
 .opening-inner::before,
 .opening-inner::after{
   content:"✧";
@@ -91,30 +95,36 @@ button{font-family:inherit}
   color:var(--gold-light);
   font-size:1.3rem;
 }
+
 .opening-inner::before{top:14px;left:17px}
 .opening-inner::after{bottom:14px;right:17px}
+
 .opening-top{
   color:var(--gold-light);
   font-size:.65rem;
   letter-spacing:.32em;
   text-transform:uppercase;
 }
+
 .opening-ornament{
   font-size:2.3rem;
   color:var(--gold);
   margin:24px 0;
-  animation:sealGlow 3s ease-in-out infinite;
+  animation:iconFloat 5s ease-in-out infinite;
 }
+
 .opening h2{
   font:500 clamp(2.5rem,7vw,4rem)/1 "Cormorant Garamond",serif;
   margin:0;
   color:var(--paper);
 }
+
 .opening-script{
   font:1.8rem "Parisienne",cursive;
   color:var(--rose-pale);
   margin:15px 0 25px;
 }
+
 .opening-copy{
   color:var(--muted);
   font-size:.87rem;
@@ -123,6 +133,7 @@ button{font-family:inherit}
   max-width:350px;
   margin:0 auto 30px;
 }
+
 .open-button{
   border:1px solid var(--gold);
   background:linear-gradient(135deg,#70283e,#35101e);
@@ -135,10 +146,12 @@ button{font-family:inherit}
   overflow:hidden;
   transition:.3s;
 }
+
 .open-button:hover{
   transform:translateY(-4px);
   box-shadow:0 10px 35px rgba(178,138,104,.2);
 }
+
 .open-button::after{
   content:"";
   position:absolute;
@@ -149,19 +162,27 @@ button{font-family:inherit}
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.2),transparent);
   animation:buttonShine 3s infinite;
 }
+
 @keyframes buttonShine{to{left:150%}}
+
 @keyframes entranceCard{
   from{opacity:0;transform:translateY(25px) scale(.96);filter:blur(5px)}
   to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
 }
-@keyframes sealGlow{
-  0%,100%{text-shadow:0 0 8px rgba(178,138,104,.2);transform:scale(1)}
-  50%{text-shadow:0 0 25px rgba(214,185,155,.8);transform:scale(1.1)}
+
+/* PAGE 7-STYLE GENTLE FLOAT */
+
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-7px) rotate(3deg)}
 }
 
-/* =========================================
-   GRAND VELVET CURTAINS
-========================================= */
+@keyframes artFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+/* CURTAINS */
 
 .curtain{
   position:fixed;
@@ -172,7 +193,9 @@ button{font-family:inherit}
   pointer-events:none;
   overflow:hidden;
 }
+
 .curtain.open{visibility:visible}
+
 .curtain-panel{
   position:relative;
   width:50%;
@@ -192,9 +215,9 @@ button{font-family:inherit}
     inset -25px 0 45px rgba(0,0,0,.45),
     inset 12px 0 30px rgba(214,185,155,.06);
 }
-.right-panel{
-  transform:scaleX(-1);
-}
+
+.right-panel{transform:scaleX(-1)}
+
 .curtain-panel::before{
   content:"";
   position:absolute;
@@ -205,6 +228,7 @@ button{font-family:inherit}
   background:linear-gradient(180deg,transparent,var(--gold),rgba(214,185,155,.35),var(--gold),transparent);
   opacity:.6;
 }
+
 .curtain-panel::after{
   content:"";
   position:absolute;
@@ -214,6 +238,7 @@ button{font-family:inherit}
   height:18%;
   background:linear-gradient(0deg,rgba(0,0,0,.4),transparent);
 }
+
 .curtain-valance{
   position:absolute;
   z-index:3;
@@ -227,6 +252,7 @@ button{font-family:inherit}
   border-bottom:2px solid rgba(178,138,104,.65);
   box-shadow:0 12px 30px rgba(0,0,0,.45);
 }
+
 .curtain-valance::after{
   content:"✦     ✧     ✦     ✧     ✦     ✧     ✦";
   display:block;
@@ -237,38 +263,33 @@ button{font-family:inherit}
   font-size:.75rem;
 }
 
-.curtain-tie.left{left:calc(50% - 120px)}
-.curtain-tie.right{right:calc(50% - 120px)}
-.curtain.open .curtain-tie{
-  animation:tieReveal .5s ease .1s forwards;
-}
 .curtain.open .left-panel{
   animation:curtainLeft 2.4s cubic-bezier(.76,0,.24,1) .15s forwards;
 }
+
 .curtain.open .right-panel{
   animation:curtainRight 2.4s cubic-bezier(.76,0,.24,1) .15s forwards;
 }
+
 .curtain.open .curtain-valance{
   animation:valanceLift 1.3s ease 1.2s forwards;
 }
+
 @keyframes curtainLeft{
   0%{transform:translateX(0)}
   100%{transform:translateX(-105%)}
 }
+
 @keyframes curtainRight{
   0%{transform:scaleX(-1) translateX(0)}
   100%{transform:scaleX(-1) translateX(-105%)}
 }
-@keyframes tieReveal{
-  to{opacity:1;transform:translateY(-50%) scale(1)}
-}
+
 @keyframes valanceLift{
   to{transform:translateY(-110%);opacity:0}
 }
 
-/* =========================================
-   CINEMATIC BIRTHDAY ROOM REVEAL
-========================================= */
+/* CINEMATIC ROOM */
 
 .room-atmosphere{
   position:fixed;
@@ -281,14 +302,17 @@ button{font-family:inherit}
     radial-gradient(ellipse at 50% 7%,rgba(214,185,155,.2),transparent 30%),
     radial-gradient(ellipse at 50% 45%,rgba(112,40,62,.15),transparent 65%);
 }
+
 body.celebrating .room-atmosphere{
   animation:roomReveal 2.8s ease 1.05s forwards;
 }
+
 @keyframes roomReveal{
   0%{opacity:0;filter:brightness(.3)}
   55%{opacity:1;filter:brightness(1.5)}
   100%{opacity:1;filter:brightness(1)}
 }
+
 .room-spotlight{
   position:absolute;
   top:-15%;
@@ -305,14 +329,17 @@ body.celebrating .room-atmosphere{
   filter:blur(12px);
   opacity:0;
 }
+
 body.celebrating .room-spotlight{
   animation:spotlightSweep 3.5s ease 1.1s forwards;
 }
+
 @keyframes spotlightSweep{
   0%{opacity:0;transform:translateX(-50%) rotate(-8deg)}
   45%{opacity:1}
   100%{opacity:.6;transform:translateX(-50%) rotate(8deg)}
 }
+
 .room-arch{
   position:absolute;
   left:50%;
@@ -328,6 +355,7 @@ body.celebrating .room-spotlight{
     0 0 0 32px rgba(178,138,104,.012),
     inset 0 0 70px rgba(112,40,62,.06);
 }
+
 .room-arch::before{
   content:"";
   position:absolute;
@@ -336,6 +364,7 @@ body.celebrating .room-spotlight{
   border-bottom:0;
   border-radius:50% 50% 0 0;
 }
+
 .chandelier{
   position:absolute;
   top:2%;
@@ -348,24 +377,30 @@ body.celebrating .room-spotlight{
   opacity:0;
   filter:drop-shadow(0 0 15px rgba(214,185,155,.5));
 }
+
 body.celebrating .chandelier{
   animation:chandelierOn 1.5s ease 1.4s forwards;
 }
+
 .chandelier .chain{
   height:35px;
   width:1px;
   background:var(--gold);
   margin:auto;
 }
+
 .chandelier .ornament{
   font-size:3.4rem;
   line-height:1;
   text-shadow:0 0 25px rgba(214,185,155,.5);
+  animation:iconFloat 5s ease-in-out infinite;
 }
+
 @keyframes chandelierOn{
   from{opacity:0;transform:translateX(-50%) translateY(-20px)}
   to{opacity:.8;transform:translateX(-50%) translateY(0)}
 }
+
 .room-lights{
   position:absolute;
   top:12%;
@@ -374,6 +409,7 @@ body.celebrating .chandelier{
   display:flex;
   justify-content:space-between;
 }
+
 .room-lights span{
   width:7px;
   height:7px;
@@ -382,11 +418,14 @@ body.celebrating .chandelier{
   box-shadow:0 0 16px 5px rgba(214,185,155,.35);
   animation:lightTwinkle 2.5s ease-in-out infinite alternate;
 }
+
 .room-lights span:nth-child(even){animation-delay:1s}
+
 @keyframes lightTwinkle{
   from{opacity:.35;transform:scale(.75)}
   to{opacity:1;transform:scale(1.3)}
 }
+
 .room-floor{
   position:absolute;
   bottom:0;
@@ -396,6 +435,7 @@ body.celebrating .chandelier{
   background:linear-gradient(0deg,rgba(8,4,7,.5),transparent);
   border-top:1px solid rgba(178,138,104,.1);
 }
+
 .room-rose{
   position:absolute;
   bottom:4%;
@@ -403,12 +443,29 @@ body.celebrating .chandelier{
   font-size:clamp(2rem,5vw,4rem);
   text-shadow:0 0 25px rgba(197,140,145,.12);
 }
-.room-rose.one{left:4%;transform:rotate(-20deg)}
-.room-rose.two{right:4%;transform:rotate(20deg)}
 
-/* =========================================
-   CELEBRATION EFFECTS
-========================================= */
+.room-rose.one{
+  left:4%;
+  animation:roseFloatLeft 5.5s ease-in-out infinite;
+}
+
+.room-rose.two{
+  right:4%;
+  animation:roseFloatRight 6s ease-in-out infinite;
+  animation-delay:1s;
+}
+
+@keyframes roseFloatLeft{
+  0%,100%{transform:translateY(0) rotate(-20deg)}
+  50%{transform:translateY(-7px) rotate(-14deg)}
+}
+
+@keyframes roseFloatRight{
+  0%,100%{transform:translateY(0) rotate(20deg)}
+  50%{transform:translateY(-7px) rotate(14deg)}
+}
+
+/* CELEBRATION EFFECTS */
 
 #celebration{
   position:fixed;
@@ -417,6 +474,7 @@ body.celebrating .chandelier{
   pointer-events:none;
   overflow:hidden;
 }
+
 .confetti{
   position:absolute;
   top:-20px;
@@ -425,11 +483,13 @@ body.celebrating .chandelier{
   opacity:0;
   animation:confettiFall var(--duration) linear forwards;
 }
+
 @keyframes confettiFall{
   0%{transform:translateY(-20px) rotate(0);opacity:0}
   10%{opacity:1}
   100%{transform:translateY(110vh) rotate(900deg);opacity:0}
 }
+
 .balloon{
   position:fixed;
   z-index:2;
@@ -440,6 +500,7 @@ body.celebrating .chandelier{
   pointer-events:none;
   box-shadow:inset -9px -7px 15px rgba(0,0,0,.25),inset 8px 5px 12px rgba(255,255,255,.13);
 }
+
 .balloon::before{
   content:"";
   position:absolute;
@@ -450,6 +511,7 @@ body.celebrating .chandelier{
   background:inherit;
   transform:rotate(45deg);
 }
+
 .balloon::after{
   content:"";
   position:absolute;
@@ -459,7 +521,9 @@ body.celebrating .chandelier{
   top:58px;
   left:21px;
 }
+
 .balloon.float{animation:balloonRise 12s ease-in-out infinite}
+
 @keyframes balloonRise{
   0%{transform:translateY(110vh) rotate(-8deg);opacity:0}
   12%{opacity:.85}
@@ -467,6 +531,7 @@ body.celebrating .chandelier{
   88%{opacity:.8}
   100%{transform:translateY(-120vh) rotate(-6deg);opacity:0}
 }
+
 .firefly{
   position:fixed;
   z-index:2;
@@ -478,14 +543,13 @@ body.celebrating .chandelier{
   pointer-events:none;
   animation:fireflyMove var(--time) ease-in-out infinite alternate;
 }
+
 @keyframes fireflyMove{
   from{transform:translate(0,0);opacity:.2}
   to{transform:translate(var(--x),var(--y));opacity:1}
 }
 
-/* =========================================
-   MAIN PAGE
-========================================= */
+/* MAIN PAGE */
 
 .page-shell{
   position:relative;
@@ -497,10 +561,12 @@ body.celebrating .chandelier{
   transform:translateY(25px);
   transition:opacity 1.2s ease,transform 1.2s ease;
 }
+
 body.celebrating .page-shell{
   opacity:1;
   transform:translateY(0);
 }
+
 .topline{
   display:flex;
   align-items:center;
@@ -511,6 +577,7 @@ body.celebrating .page-shell{
   letter-spacing:.22em;
   text-transform:uppercase;
 }
+
 .topline .ornament{color:var(--rose);letter-spacing:.35em}
 
 /* HERO */
@@ -521,6 +588,7 @@ body.celebrating .page-shell{
   padding:65px 12px 30px;
   overflow:hidden;
 }
+
 .hero-light{
   position:absolute;
   width:500px;
@@ -532,11 +600,14 @@ body.celebrating .page-shell{
   pointer-events:none;
   opacity:0;
 }
+
 body.celebrating .hero-light{animation:lightReveal 3s ease forwards}
+
 @keyframes lightReveal{
   from{opacity:0;transform:translateX(-50%) scale(.5)}
   to{opacity:1;transform:translateX(-50%) scale(1.3)}
 }
+
 .hero::before{
   content:"";
   position:absolute;
@@ -550,6 +621,7 @@ body.celebrating .hero-light{animation:lightReveal 3s ease forwards}
   box-shadow:0 0 0 18px rgba(178,138,104,.025),0 0 0 38px rgba(178,138,104,.02);
   pointer-events:none;
 }
+
 .eyebrow{
   position:relative;
   color:var(--gold-light);
@@ -558,6 +630,7 @@ body.celebrating .hero-light{animation:lightReveal 3s ease forwards}
   font-size:.66rem;
   margin-bottom:20px;
 }
+
 .hero h1{
   position:relative;
   margin:0;
@@ -566,6 +639,7 @@ body.celebrating .hero-light{animation:lightReveal 3s ease forwards}
   letter-spacing:.025em;
   text-shadow:0 8px 40px rgba(0,0,0,.5);
 }
+
 .hero h1 .birthday-word{
   display:block;
   color:var(--rose-pale);
@@ -574,6 +648,7 @@ body.celebrating .hero-light{animation:lightReveal 3s ease forwards}
   font-weight:400;
   margin-top:12px;
 }
+
 .hero h1 .birthday-name{
   display:block;
   font-size:.48em;
@@ -582,19 +657,23 @@ body.celebrating .hero-light{animation:lightReveal 3s ease forwards}
   font-style:normal;
   margin-top:17px;
 }
+
 body.celebrating .hero h1{
   animation:heroTitle 1.2s cubic-bezier(.2,.8,.2,1) 1.5s both;
 }
+
 @keyframes heroTitle{
   from{opacity:0;transform:translateY(35px) scale(.94);filter:blur(8px)}
   to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
 }
+
 .hero-subtitle{
   margin:26px 0 0;
   color:#d6bdb4;
   font:clamp(1.25rem,2.6vw,1.8rem) "Cormorant Garamond",serif;
   letter-spacing:.04em;
 }
+
 .hero-rule{
   width:165px;
   height:1px;
@@ -602,6 +681,7 @@ body.celebrating .hero h1{
   background:linear-gradient(90deg,transparent,var(--gold),transparent);
   position:relative;
 }
+
 .hero-rule::after{
   content:"✦";
   position:absolute;
@@ -612,6 +692,7 @@ body.celebrating .hero h1{
   color:var(--gold-light);
   background:#1a1015;
 }
+
 .dedication{
   width:min(650px,100%);
   margin:30px auto 0;
@@ -621,6 +702,7 @@ body.celebrating .hero h1{
   color:#d9c6bc;
   font:italic clamp(1.15rem,2.4vw,1.55rem)/1.5 "Cormorant Garamond",serif;
 }
+
 .dedication small{
   display:block;
   margin-top:8px;
@@ -640,11 +722,14 @@ body.celebrating .hero h1{
   text-align:center;
   opacity:0;
 }
+
 body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
+
 @keyframes cakeArrival{
   from{opacity:0;transform:translateY(30px) scale(.9)}
   to{opacity:1;transform:translateY(0) scale(1)}
 }
+
 .cake-glow{
   position:absolute;
   width:250px;
@@ -655,6 +740,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   background:radial-gradient(ellipse,rgba(178,138,104,.22),transparent 70%);
   filter:blur(12px);
 }
+
 .cake{
   position:relative;
   width:180px;
@@ -662,6 +748,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   margin:auto;
   z-index:1;
 }
+
 .cake-top{
   position:absolute;
   left:10px;
@@ -673,6 +760,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   border:2px solid #d5b49c;
   z-index:3;
 }
+
 .cake-body{
   position:absolute;
   left:10px;
@@ -684,6 +772,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   border-bottom:5px solid #d6b99b;
   box-shadow:0 13px 25px rgba(0,0,0,.3);
 }
+
 .cake-body::before{
   content:"";
   position:absolute;
@@ -693,6 +782,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   height:13px;
   background:repeating-radial-gradient(ellipse at top,#ead0b9 0 7px,transparent 8px 19px);
 }
+
 .cake-plate{
   position:absolute;
   width:215px;
@@ -703,6 +793,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   background:linear-gradient(180deg,#d6b99b,#805c4c);
   box-shadow:0 10px 18px rgba(0,0,0,.4);
 }
+
 .candle{
   position:absolute;
   width:9px;
@@ -713,6 +804,7 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   border-radius:3px;
   z-index:5;
 }
+
 .flame{
   position:absolute;
   width:13px;
@@ -726,16 +818,19 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   transform-origin:bottom center;
   animation:flameFlicker .16s ease-in-out infinite alternate;
 }
+
 @keyframes flameFlicker{
   from{transform:rotate(-49deg) scale(.9)}
   to{transform:rotate(-40deg) scale(1.12)}
 }
+
 .cake-caption{
   margin:18px 0 0;
   color:var(--gold-light);
   font:1.65rem "Parisienne",cursive;
   animation:softGlow 3s ease-in-out infinite;
 }
+
 @keyframes softGlow{
   0%,100%{text-shadow:0 0 4px rgba(214,185,155,.15)}
   50%{text-shadow:0 0 18px rgba(214,185,155,.5)}
@@ -758,23 +853,29 @@ body.celebrating .cake-stage{animation:cakeArrival 1.1s ease 2s forwards}
   border:1px solid rgba(214,185,155,.55);
   opacity:0;
 }
+
 body.celebrating .intro-card{animation:paperArrival 1s ease 2.3s forwards}
+
 @keyframes paperArrival{
   from{opacity:0;transform:translateY(35px) rotate(-2deg)}
   to{opacity:1;transform:translateY(0) rotate(-.35deg)}
 }
+
 .intro-card::before,.intro-card::after{
   content:"✦";
   position:absolute;
   color:var(--wine2);
   font-size:1.2rem;
 }
+
 .intro-card::before{top:13px;left:17px}
 .intro-card::after{bottom:13px;right:17px}
+
 .intro-card p{
   margin:0;
   font:clamp(1.15rem,2.2vw,1.42rem)/1.7 "Cormorant Garamond",serif;
 }
+
 .intro-card .script{
   display:block;
   margin-top:17px;
@@ -789,33 +890,40 @@ body.celebrating .intro-card{animation:paperArrival 1s ease 2.3s forwards}
   margin:0 auto 36px;
   opacity:0;
 }
+
 body.celebrating .section-heading{animation:fadeUp 1s ease 2.6s forwards}
+
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(25px)}
   to{opacity:1;transform:translateY(0)}
 }
+
 .section-heading .mini{
   color:var(--gold-light);
   font-size:.65rem;
   letter-spacing:.3em;
   text-transform:uppercase;
 }
+
 .section-heading h2{
   margin:10px 0 0;
   color:#ead8ce;
   font:500 clamp(2.2rem,5vw,3.4rem)/1 "Cormorant Garamond",serif;
 }
+
 .section-heading p{
   margin:11px 0 0;
   color:var(--muted);
   font:italic 1.05rem "Cormorant Garamond",serif;
 }
+
 .polaroid-grid{
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:clamp(12px,2.1vw,24px);
   align-items:start;
 }
+
 .polaroid{
   position:relative;
   padding:10px 10px 16px;
@@ -825,21 +933,26 @@ body.celebrating .section-heading{animation:fadeUp 1s ease 2.6s forwards}
   border:1px solid rgba(255,255,255,.35);
   opacity:0;
 }
+
 body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) forwards}
+
 .polaroid:nth-child(1){transform:rotate(-4deg) translateY(12px);animation-delay:2.8s}
 .polaroid:nth-child(2){transform:rotate(2.5deg) translateY(-4px);animation-delay:3s}
 .polaroid:nth-child(3){transform:rotate(-1.5deg) translateY(17px);animation-delay:3.2s}
 .polaroid:nth-child(4){transform:rotate(3.5deg) translateY(2px);animation-delay:3.4s}
 .polaroid:nth-child(5){transform:rotate(-3deg) translateY(13px);animation-delay:3.6s}
+
 @keyframes photoArrive{
   from{opacity:0;filter:blur(5px);translate:0 45px}
   to{opacity:1;filter:blur(0);translate:0 0}
 }
+
 .polaroid:hover{
   transform:translateY(-10px) rotate(0deg) scale(1.035);
   box-shadow:0 25px 45px rgba(0,0,0,.5);
   z-index:4;
 }
+
 .photo-wrap{
   width:100%;
   aspect-ratio:4/5;
@@ -847,6 +960,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   background:#4b3334;
   position:relative;
 }
+
 .photo-wrap img{
   width:100%;
   height:100%;
@@ -856,10 +970,12 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   filter:saturate(.83) contrast(1.03);
   transition:transform .8s ease,filter .8s ease;
 }
+
 .polaroid:hover img{
   transform:scale(1.09);
   filter:saturate(1) contrast(1.05);
 }
+
 .photo-wrap::after{
   content:"";
   position:absolute;
@@ -867,6 +983,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   pointer-events:none;
   background:linear-gradient(145deg,rgba(75,22,37,.08),transparent 55%,rgba(20,10,12,.15));
 }
+
 .photo-caption{
   min-height:45px;
   padding:11px 2px 0;
@@ -874,6 +991,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   font:1.1rem/1.15 "Parisienne",cursive;
   color:#54353a;
 }
+
 .tape{
   position:absolute;
   width:66px;
@@ -885,10 +1003,12 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   opacity:.78;
   z-index:3;
 }
+
 .polaroid:nth-child(even) .tape{
   transform:translateX(-50%) rotate(4deg);
   background:rgba(197,140,145,.6);
 }
+
 .photo-wrap.missing{
   display:grid;
   place-items:center;
@@ -897,6 +1017,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   color:#e5cfc2;
   text-align:center;
 }
+
 .missing-label{font:italic 1rem "Cormorant Garamond",serif}
 
 /* NOTES */
@@ -908,6 +1029,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   gap:18px;
   margin:60px auto 0;
 }
+
 .note{
   padding:13px 20px;
   color:#e1c6b6;
@@ -917,11 +1039,13 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   transform:rotate(-2deg);
   animation:noteFloat 4s ease-in-out infinite;
 }
+
 .note:nth-child(2){
   transform:rotate(2deg);
   color:var(--gold-light);
   animation-delay:1s;
 }
+
 @keyframes noteFloat{
   0%,100%{translate:0 0}
   50%{translate:0 -7px}
@@ -938,6 +1062,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   position:relative;
   background:radial-gradient(ellipse at center,rgba(75,24,43,.2),transparent 75%);
 }
+
 .question-section::before,
 .question-section::after{
   content:"✧";
@@ -946,28 +1071,34 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   font-size:1.5rem;
   animation:twinkle 3s ease-in-out infinite;
 }
+
 .question-section::before{top:18px;left:12%}
 .question-section::after{bottom:18px;right:12%;animation-delay:1.5s}
+
 @keyframes twinkle{
   0%,100%{opacity:.35;transform:scale(.8)}
   50%{opacity:1;transform:scale(1.3)}
 }
+
 .script-line{
   color:var(--rose-pale);
   font:2rem "Parisienne",cursive;
   margin-bottom:10px;
 }
+
 .question-section h2{
   color:#f0e0d7;
   font:500 clamp(2rem,4.5vw,3.2rem)/1.1 "Cormorant Garamond",serif;
   margin:0 0 28px;
 }
+
 .button-row{
   display:flex;
   justify-content:center;
   gap:14px;
   flex-wrap:wrap;
 }
+
 .choice-button{
   border:1px solid var(--gold);
   padding:15px 27px;
@@ -979,25 +1110,31 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   cursor:pointer;
   transition:transform .25s,background .25s,box-shadow .25s;
 }
+
 .choice-button:hover{
   transform:translateY(-4px);
   background:linear-gradient(135deg,#79364c,#4a1729);
   box-shadow:0 10px 28px rgba(0,0,0,.3);
 }
+
 .choice-button.yes{
   box-shadow:0 0 25px rgba(178,138,104,.12);
   animation:yesGlow 3s ease-in-out infinite;
 }
+
 @keyframes yesGlow{
   0%,100%{box-shadow:0 0 8px rgba(178,138,104,.1)}
   50%{box-shadow:0 0 25px rgba(178,138,104,.28)}
 }
+
 .choice-button.secondary{
   color:#d8c4b9;
   background:transparent;
   border-color:rgba(214,185,155,.5);
 }
+
 .choice-button.secondary:hover{background:rgba(255,255,255,.06)}
+
 .footer{
   text-align:center;
   margin-top:45px;
@@ -1006,6 +1143,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   letter-spacing:.2em;
   text-transform:uppercase;
 }
+
 .footer .heart{
   display:block;
   color:var(--rose);
@@ -1013,6 +1151,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   margin-bottom:10px;
   animation:heartbeat 1.8s ease-in-out infinite;
 }
+
 @keyframes heartbeat{
   0%,100%{transform:scale(1)}
   15%{transform:scale(1.2)}
@@ -1033,7 +1172,9 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   backdrop-filter:blur(9px);
   z-index:220;
 }
+
 .modal-backdrop.show{display:flex}
+
 .modal{
   width:min(440px,100%);
   padding:38px 28px 30px;
@@ -1045,6 +1186,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   position:relative;
   animation:modalAppear .4s ease both;
 }
+
 .modal::before{
   content:"";
   position:absolute;
@@ -1052,21 +1194,26 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   border:1px solid rgba(75,24,43,.2);
   pointer-events:none;
 }
+
 @keyframes modalAppear{
   from{opacity:0;transform:translateY(25px) scale(.94)}
   to{opacity:1;transform:translateY(0) scale(1)}
 }
+
 .modal .seal{font-size:2rem;color:#7a3348}
+
 .modal h3{
   margin:12px 0;
   color:#421b29;
   font:500 2.2rem "Cormorant Garamond",serif;
 }
+
 .modal p{
   margin:0 0 24px;
   color:#604740;
   font:1.15rem/1.6 "Cormorant Garamond",serif;
 }
+
 .modal button{
   min-width:125px;
   padding:13px 25px;
@@ -1077,6 +1224,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   letter-spacing:.14em;
   font-size:.7rem;
 }
+
 .spark{
   position:fixed;
   pointer-events:none;
@@ -1085,16 +1233,14 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   animation:sparkDrift 1.5s ease-out forwards;
   text-shadow:0 0 12px rgba(214,185,155,.6);
 }
+
 @keyframes sparkDrift{
   0%{opacity:0;transform:translateY(10px) scale(.6) rotate(0)}
   20%{opacity:1}
   100%{opacity:0;transform:translateY(-90px) scale(1.3) rotate(35deg)}
 }
 
-
-/* =========================================
-   RESPONSIVE
-========================================= */
+/* RESPONSIVE */
 
 @media(max-width:850px){
   .polaroid-grid{
@@ -1151,13 +1297,9 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   }
 
   .scrap-notes{margin-top:42px}
-
   .question-section{margin-top:65px}
-
   .choice-button{width:min(100%,260px)}
-
   .opening-inner{padding:42px 21px}
-
   .curtain-valance{height:55px}
 
   .curtain-valance::after{
@@ -1165,32 +1307,14 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
     font-size:.6rem;
   }
 
-  .curtain-tie{width:65px;height:65px}
-
-  .curtain-tie.left{left:calc(50% - 85px)}
-  .curtain-tie.right{right:calc(50% - 85px)}
-
   .chandelier{top:1%}
 
   /* MOBILE ANIMATION FIXES */
 
-  /* Opening ornament: glow without growing */
   .opening-ornament{
-    animation:sealGlowMobile 3s ease-in-out infinite;
+    animation:iconFloat 5s ease-in-out infinite;
   }
 
-  @keyframes sealGlowMobile{
-    0%,100%{
-      text-shadow:0 0 8px rgba(178,138,104,.2);
-      opacity:.8;
-    }
-    50%{
-      text-shadow:0 0 22px rgba(214,185,155,.8);
-      opacity:1;
-    }
-  }
-
-  /* Room lights: brightness only */
   .room-lights span{
     animation:lightTwinkleMobile 2.5s ease-in-out infinite alternate;
   }
@@ -1200,17 +1324,6 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
     to{opacity:1}
   }
 
-  /* Hero spotlight: fade in without expanding */
-  body.celebrating .hero-light{
-    animation:lightRevealMobile 3s ease forwards;
-  }
-
-  @keyframes lightRevealMobile{
-    from{opacity:0}
-    to{opacity:1}
-  }
-
-  /* Candle flame: gentle flicker without resizing */
   .flame{
     animation:flameFlickerMobile .16s ease-in-out infinite alternate;
   }
@@ -1220,7 +1333,6 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
     to{transform:rotate(-40deg)}
   }
 
-  /* Decorative stars: glow without resizing */
   .question-section::before,
   .question-section::after{
     animation:twinkleMobile 3s ease-in-out infinite;
@@ -1231,7 +1343,6 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
     50%{opacity:1}
   }
 
-  /* Main heading: no scaling during entrance */
   body.celebrating .hero h1{
     animation:heroTitleMobile 1.2s ease 1.5s both;
   }
@@ -1241,7 +1352,6 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
     to{opacity:1;transform:translateY(0);filter:blur(0)}
   }
 
-  /* Cake entrance: slide in without scaling */
   body.celebrating .cake-stage{
     animation:cakeArrivalMobile 1.1s ease 2s forwards;
   }
@@ -1251,13 +1361,121 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
     to{opacity:1;transform:translateY(0)}
   }
 
-  /* Prevent sticky hover transformations on touchscreens */
-  .polaroid:hover{
-    transform:none;
+
+/* SMOOTH POLAROID TAP ANIMATION */
+.polaroid {
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.7s ease;
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
+.polaroid.touched {
+  transform: translateY(-8px) scale(1.035) !important;
+  box-shadow: 0 22px 40px rgba(0,0,0,0.48);
+  z-index: 20;
+}
+
+.polaroid .photo-wrap img {
+  transition:
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+}
+
+.polaroid.touched .photo-wrap img {
+  transform: scale(1.06);
+  filter: saturate(1.08) contrast(1.04);
+}
+
+  html,
+  body{
+    overflow-x:hidden;
+    background-attachment:scroll;
   }
 
-  .polaroid:hover img{
-    transform:none;
+  body{
+    background-size:auto;
+  }
+
+  /* Keep the texture fixed and still */
+  body::before{
+    position:fixed;
+    opacity:.08;
+    animation:none;
+  }
+
+  /* Room atmosphere fades in without brightness pulsing */
+  body.celebrating .room-atmosphere{
+    animation:roomRevealMobile 2.8s ease 1.05s forwards;
+  }
+
+  @keyframes roomRevealMobile{
+    0%{opacity:0}
+    55%{opacity:1}
+    100%{opacity:1}
+  }
+
+  /* Spotlight remains still on phones */
+  .room-spotlight{
+    filter:none;
+    transform:translateX(-50%);
+  }
+
+  body.celebrating .room-spotlight{
+    animation:spotlightMobile 3.5s ease 1.1s forwards;
+  }
+
+  @keyframes spotlightMobile{
+    0%{opacity:0}
+    45%{opacity:.5}
+    100%{opacity:.35}
+  }
+
+  /* Hero glow fades in without expanding */
+  .hero-light{
+    transform:translateX(-50%);
+  }
+
+  body.celebrating .hero-light{
+    animation:heroGlowMobile 3s ease forwards;
+  }
+
+  @keyframes heroGlowMobile{
+    from{opacity:0}
+    to{opacity:1}
+  }
+
+  /* Gentle floating symbols, matching Page 7 */
+  .chandelier .ornament{
+    animation:iconFloat 5s ease-in-out infinite;
+  }
+
+  .room-rose.one{
+    animation:roseFloatLeft 5.5s ease-in-out infinite;
+  }
+
+  .room-rose.two{
+    animation:roseFloatRight 6s ease-in-out infinite;
+    animation-delay:1s;
+  }
+
+  /* Keep fireflies subtle on mobile */
+  .firefly{
+    animation:none;
+    opacity:.55;
+  }
+
+  /* Balloons travel vertically without rotating */
+  .balloon.float{
+    animation:balloonMobile 12s ease-in-out infinite;
+  }
+
+  @keyframes balloonMobile{
+    0%{transform:translateY(110vh);opacity:0}
+    15%{opacity:.65}
+    85%{opacity:.65}
+    100%{transform:translateY(-120vh);opacity:0}
   }
 }
 
@@ -1276,7 +1494,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
 
 <body>
 
-<!-- CINEMATIC ROOM — BEHIND THE CURTAINS -->
+<!-- CINEMATIC ROOM -->
 <div class="room-atmosphere" aria-hidden="true">
   <div class="room-spotlight"></div>
   <div class="room-arch"></div>
@@ -1313,7 +1531,6 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
   <div class="curtain-panel left-panel"></div>
   <div class="curtain-panel right-panel"></div>
   <div class="curtain-valance"></div>
-
 </div>
 
 <!-- CELEBRATION EFFECTS -->
@@ -1466,9 +1683,7 @@ body.celebrating .polaroid{animation:photoArrive .9s cubic-bezier(.2,.8,.2,1) fo
 </div>
 
 <script>
-/* =========================================
-   THE CINEMATIC ENTRANCE SEQUENCE
-========================================= */
+/* THE CINEMATIC ENTRANCE SEQUENCE */
 
 const opening = document.getElementById("opening");
 const curtain = document.getElementById("curtain");
@@ -1481,10 +1696,8 @@ openDoors.addEventListener("click", () => {
   if (celebrationStarted) return;
   celebrationStarted = true;
 
-  // First, fade away the invitation card.
   opening.classList.add("dismissed");
 
-  // Then begin the curtain reveal after the card has cleared.
   setTimeout(() => {
     curtain.classList.add("open");
     document.body.classList.add("celebrating");
@@ -1494,15 +1707,12 @@ openDoors.addEventListener("click", () => {
     createFireflies();
   }, 850);
 
-  // Remove the curtains only after the full opening animation.
   setTimeout(() => {
     curtain.style.display = "none";
   }, 3650);
 });
 
-/* =========================================
-   GOLDEN CONFETTI
-========================================= */
+/* GOLDEN CONFETTI */
 
 function createConfetti() {
   const colors = [
@@ -1532,9 +1742,7 @@ function createConfetti() {
   }
 }
 
-/* =========================================
-   FLOATING BURGUNDY BALLOONS
-========================================= */
+/* FLOATING BURGUNDY BALLOONS */
 
 function createBalloons() {
   const colors = ["#4b182b","#70283e","#8b4655","#805b50","#9b6a6a"];
@@ -1552,9 +1760,7 @@ function createBalloons() {
   }
 }
 
-/* =========================================
-   LITTLE GOLDEN FIREFLIES
-========================================= */
+/* LITTLE GOLDEN FIREFLIES */
 
 function createFireflies() {
   for (let i = 0; i < 24; i++) {
@@ -1570,9 +1776,7 @@ function createFireflies() {
   }
 }
 
-/* =========================================
-   POPUP SYSTEM
-========================================= */
+/* POPUP SYSTEM */
 
 const backdrop = document.getElementById("modalBackdrop");
 const modalTitle = document.getElementById("modalTitle");
@@ -1626,8 +1830,7 @@ closeModal.addEventListener("click", () => {
   }
 });
 
-/* Backdrop closes only ordinary popups.
-   The YES popup requires the OKAY button. */
+/* BACKDROP */
 
 backdrop.addEventListener("click", (event) => {
   if (event.target === backdrop && !goToPage2AfterOkay) {
@@ -1641,9 +1844,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* =========================================
-   SPARKLE BURST
-========================================= */
+/* SPARKLE BURST */
 
 function sparkle(x, y) {
   const symbols = ["✦","✧","♡","⋆","❀"];
@@ -1660,6 +1861,22 @@ function sparkle(x, y) {
     setTimeout(() => item.remove(), 1600);
   }
 }
+document.querySelectorAll('.polaroid').forEach((polaroid) => {
+  let touchTimer;
+
+  polaroid.addEventListener('click', () => {
+    document.querySelectorAll('.polaroid.touched').forEach((item) => {
+      item.classList.remove('touched');
+    });
+
+    clearTimeout(touchTimer);
+    polaroid.classList.add('touched');
+
+    touchTimer = setTimeout(() => {
+      polaroid.classList.remove('touched');
+    }, 850);
+  });
+});
 </script>
 
 </body>
