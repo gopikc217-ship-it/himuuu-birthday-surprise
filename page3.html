@@ -1,0 +1,1161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Little Birthday World ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #160d12;
+    --cherry: #281019;
+    --wine: #4b182b;
+    --wine2: #70283e;
+    --gold: #b28a68;
+    --gold-light: #d5b7a5;
+    --paper: #ead8c5;
+    --muted: #c7aeb0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 15% 10%, #4b182b55, transparent 35%),
+        radial-gradient(ellipse at 85% 65%, #70283e22, transparent 35%),
+        var(--black);
+    color: var(--paper);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 20;
+    opacity: .13;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.3'/%3E%3C/svg%3E");
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page {
+    width: min(1200px, 92%);
+    margin: auto;
+    padding: 35px 0 70px;
+}
+
+/* TOP BAR */
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b28a6840;
+    color: var(--gold-light);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.topbar a:hover {
+    color: white;
+}
+
+/* HERO */
+
+.hero {
+    position: relative;
+    text-align: center;
+    padding: 105px 15px 90px;
+}
+
+.eyebrow {
+    color: var(--gold);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-size: 10px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 8vw, 94px);
+    line-height: .95;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--gold-light);
+    font-style: italic;
+}
+
+.script {
+    font-family: 'Parisienne', cursive;
+    color: #bd7f89;
+}
+
+.hero .script {
+    font-size: clamp(30px, 5vw, 48px);
+    margin-top: 25px;
+}
+
+.ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    color: var(--gold);
+    margin: 20px 0;
+}
+
+.ornament::before,
+.ornament::after {
+    content: "";
+    width: 75px;
+    height: 1px;
+    background: var(--gold);
+}
+
+.hero-description {
+    max-width: 530px;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+/* SCRAPBOOK INTRO */
+
+.memory-intro {
+    text-align: center;
+    margin: 10px 0 55px;
+}
+
+.memory-intro p {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* SCATTERED PHOTO WALL */
+
+.scrapbook {
+    position: relative;
+    padding: 20px 0 50px;
+}
+
+.scrap-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 30px;
+    margin-bottom: 65px;
+    min-height: 220px;
+}
+
+.scrap-row:nth-child(even) {
+    justify-content: space-between;
+    padding: 0 9%;
+}
+
+.scrap-row:nth-child(3n) {
+    justify-content: space-evenly;
+}
+
+/* PHOTO FRAME */
+
+.photo-frame {
+    position: relative;
+    width: 190px;
+    padding: 10px 10px 11px;
+    background: #e9d9c8;
+    box-shadow: 0 15px 35px #0009;
+    transition: transform .4s ease;
+    flex-shrink: 0;
+}
+
+.photo-frame:hover {
+    transform: rotate(0deg) scale(1.06) !important;
+    z-index: 5;
+}
+
+.photo-frame img {
+    display: block;
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    background: #39202b;
+}
+
+.photo-frame.wide {
+    width: 260px;
+}
+
+.photo-frame.wide img {
+    height: 175px;
+}
+
+.photo-frame.tall {
+    width: 170px;
+}
+
+.photo-frame.tall img {
+    height: 265px;
+}
+
+.photo-frame.small {
+    width: 145px;
+}
+
+.photo-frame.small img {
+    height: 155px;
+}
+
+/* EMPTY PHOTO PLACEHOLDERS */
+
+.photo-placeholder {
+    width: 100%;
+    height: 210px;
+    background:
+        linear-gradient(145deg, #57283b, #21121a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #d5b7a5;
+    font-family: 'Parisienne', cursive;
+    font-size: 32px;
+}
+
+.wide .photo-placeholder {
+    height: 175px;
+}
+
+.tall .photo-placeholder {
+    height: 265px;
+}
+
+.small .photo-placeholder {
+    height: 155px;
+}
+
+.photo-placeholder::after {
+    content: "♡";
+    opacity: .65;
+}
+
+/* TAPES AND NOTES */
+
+.tape {
+    position: absolute;
+    width: 65px;
+    height: 20px;
+    top: -9px;
+    left: 38%;
+    background: #b28a6890;
+    transform: rotate(-6deg);
+    z-index: 2;
+}
+
+.floating-note {
+    color: var(--gold-light);
+    font-family: 'Parisienne', cursive;
+    font-size: 27px;
+    text-align: center;
+    transform: rotate(-6deg);
+    max-width: 180px;
+}
+
+.floating-note.right {
+    transform: rotate(7deg);
+}
+
+.little-star {
+    color: var(--gold);
+    font-size: 25px;
+    opacity: .8;
+}
+
+/* DECORATIVE PAPER */
+
+.paper-note {
+    width: 180px;
+    padding: 20px 14px;
+    background: #e7d4c1;
+    color: #492632;
+    text-align: center;
+    font-family: 'Parisienne', cursive;
+    font-size: 24px;
+    transform: rotate(4deg);
+    box-shadow: 0 12px 25px #0007;
+}
+
+/* VIDEO SECTION */
+
+.video-section {
+    margin: 100px 0 110px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.section-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+}
+
+.section-heading p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 45px;
+    max-width: 900px;
+    margin: auto;
+}
+
+.video-card {
+    position: relative;
+    padding: 12px;
+    background: #e7d5c3;
+    box-shadow: 0 15px 35px #0008;
+    transform: rotate(-2deg);
+}
+
+.video-card:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.video-wrap {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    background: #29141e;
+    overflow: hidden;
+}
+
+.video-wrap video {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.video-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #54263a, #1c1017);
+    color: var(--paper);
+    letter-spacing: 3px;
+    font-size: 10px;
+    text-align: center;
+    line-height: 2;
+}
+
+.video-placeholder span {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* NAVIGATION */
+
+.adventures {
+    margin-top: 110px;
+}
+
+.adventures-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.adventures-heading h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 6vw, 60px);
+    font-weight: 500;
+}
+
+.adventures-heading p {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 2;
+    margin-top: 12px;
+}
+
+.adventure-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 17px;
+}
+
+.adventure {
+    position: relative;
+    min-height: 175px;
+    padding: 27px 22px;
+    border: 1px solid #b28a6845;
+    background: linear-gradient(145deg, #3c1827, #211019);
+    transition: .35s;
+    overflow: hidden;
+}
+
+.adventure:hover {
+    transform: translateY(-6px);
+    border-color: var(--gold);
+    background: linear-gradient(145deg, #572437, #281019);
+}
+
+.adventure .number {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.adventure h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.adventure p {
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+    margin-top: 8px;
+}
+
+.adventure .arrow {
+    position: absolute;
+    right: 20px;
+    bottom: 18px;
+    color: var(--gold);
+    font-size: 20px;
+    transition: .3s;
+}
+
+.adventure:hover .arrow {
+    transform: translateX(5px);
+}
+
+/* FOOTER */
+
+.footer {
+    text-align: center;
+    margin-top: 90px;
+    padding-top: 30px;
+    border-top: 1px solid #b28a6830;
+}
+
+.footer .script {
+    font-size: 31px;
+}
+
+.footer p {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-top: 13px;
+    text-transform: uppercase;
+}
+
+
+/* ==========================================
+   ATMOSPHERIC ANIMATIONS
+   ========================================== */
+
+/* Floating golden dust */
+.dust-layer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.gold-dust {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #d5b7a5;
+    opacity: 0;
+    box-shadow: 0 0 9px 2px #b28a6870;
+    animation: dustDrift var(--duration, 12s) linear infinite;
+    animation-delay: var(--delay, 0s);
+}
+
+@keyframes dustDrift {
+    0% {
+        transform: translate3d(0, 25px, 0) scale(.5);
+        opacity: 0;
+    }
+    15% { opacity: .55; }
+    75% { opacity: .3; }
+    100% {
+        transform: translate3d(var(--drift, 35px), -110vh, 0) scale(1.15);
+        opacity: 0;
+    }
+}
+
+/* Keep content above particles */
+.page {
+    position: relative;
+    z-index: 2;
+}
+
+/* Hero entrance */
+.hero {
+    animation: heroArrival 1.25s ease both;
+}
+
+@keyframes heroArrival {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll reveal */
+.reveal {
+    opacity: 0;
+    filter: blur(5px);
+    transition: opacity .85s ease, filter .85s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    filter: blur(0);
+}
+
+/* Floating scrapbook decorations */
+.floating-note,
+.paper-note,
+.little-star {
+    animation: scrapbookFloat 5.5s ease-in-out infinite;
+}
+
+.paper-note {
+    animation-delay: -1.8s;
+}
+
+.little-star {
+    animation-delay: -3s;
+}
+
+@keyframes scrapbookFloat {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -7px; }
+}
+
+/* Photo frames */
+.photo-frame,
+.video-card {
+    will-change: transform;
+}
+
+.photo-frame {
+    transition:
+        transform .55s cubic-bezier(.2,.75,.25,1),
+        box-shadow .55s ease;
+}
+
+.photo-frame:hover {
+    box-shadow: 0 22px 42px #000b, 0 0 18px #b28a6820;
+}
+
+/* Video frames */
+.video-card {
+    transition:
+        transform .55s cubic-bezier(.2,.75,.25,1),
+        box-shadow .55s ease;
+}
+
+.video-card:hover {
+    transform: rotate(0deg) translateY(-7px);
+    box-shadow: 0 22px 42px #000b, 0 0 18px #b28a6820;
+}
+
+/* Navigation card shimmer */
+.adventure::before {
+    content: "";
+    position: absolute;
+    top: -80%;
+    left: -60%;
+    width: 45%;
+    height: 260%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #d5b7a51c,
+        transparent
+    );
+    transform: rotate(22deg);
+    transition: left .8s ease;
+    pointer-events: none;
+}
+
+.adventure:hover::before {
+    left: 130%;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        filter: none;
+    }
+}
+
+/* MOBILE */
+
+@media(max-width: 700px) {
+
+    .hero {
+        padding: 75px 8px 60px;
+    }
+
+    .scrap-row,
+    .scrap-row:nth-child(even),
+    .scrap-row:nth-child(3n) {
+        justify-content: space-around;
+        gap: 15px;
+        margin-bottom: 45px;
+        padding: 0;
+    }
+
+    .photo-frame {
+        width: 135px;
+        padding: 7px;
+    }
+
+    .photo-frame img,
+    .photo-placeholder {
+        height: 145px;
+    }
+
+    .photo-frame.wide {
+        width: 175px;
+    }
+
+    .photo-frame.wide img,
+    .photo-frame.wide .photo-placeholder {
+        height: 125px;
+    }
+
+    .photo-frame.tall {
+        width: 120px;
+    }
+
+    .photo-frame.tall img,
+    .photo-frame.tall .photo-placeholder {
+        height: 190px;
+    }
+
+    .photo-frame.small {
+        width: 110px;
+    }
+
+    .photo-frame.small img,
+    .photo-frame.small .photo-placeholder {
+        height: 120px;
+    }
+
+    .floating-note {
+        font-size: 20px;
+    }
+
+    .paper-note {
+        width: 125px;
+        font-size: 19px;
+    }
+
+    .video-grid {
+        grid-template-columns: 1fr;
+        max-width: 430px;
+        gap: 30px;
+    }
+
+    .adventure-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .adventure {
+        min-height: 165px;
+        padding: 20px 14px;
+    }
+
+    .adventure h3 {
+        font-size: 23px;
+    }
+}
+
+@media(max-width: 390px) {
+    .adventure-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-frame {
+        width: 115px;
+    }
+
+    .photo-frame img,
+    .photo-placeholder {
+        height: 125px;
+    }
+}
+</style>
+</head>
+
+<body>
+<div class="dust-layer" aria-hidden="true"></div>
+<main class="page">
+
+<header class="topbar">
+    <span>THE BIRTHDAY COLLECTION · 03</span>
+    <a href="page2.html">← BACK TO SECRET ENTRY</a>
+</header>
+
+
+<!-- WELCOME -->
+
+<section class="hero">
+
+    <p class="eyebrow">A place beyond ordinary pages</p>
+
+    <h1>
+        WELCOME TO
+        <span>YOUR LITTLE WORLD</span>
+    </h1>
+
+    <div class="script">Come in, birthday girl ♡</div>
+
+    <div class="ornament">✦</div>
+
+    <p class="hero-description">
+        This isn't just a website. It's a tiny collection of
+        moments, memories, silly things, dreams and surprises
+        put together for one very special girl.
+
+        Take your time, explore every corner and make yourself
+        at home. Everything here has a little piece of you in it.
+    </p>
+
+</section>
+
+
+<!-- SCATTERED SCRAPBOOK PHOTOS -->
+
+<section class="scrapbook">
+
+    <div class="memory-intro">
+        <p>Little pieces of our world · A memory board</p>
+    </div>
+
+    <!-- ROW 1 -->
+
+    <div class="scrap-row">
+
+        <!-- PHOTO SLOT 01 -->
+        <div class="photo-frame" style="transform:rotate(-8deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-01.jpg"
+                 alt="Memory 01"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+        <div class="floating-note">
+            made with love ♡
+        </div>
+
+        <!-- PHOTO SLOT 02 -->
+        <div class="photo-frame small" style="transform:rotate(7deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-02.jpg"
+                 alt="Memory 02"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+    </div>
+
+
+    <!-- ROW 2 -->
+
+    <div class="scrap-row">
+
+        <div class="little-star">✦</div>
+
+        <!-- PHOTO SLOT 03 -->
+        <div class="photo-frame tall" style="transform:rotate(6deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-03.jpg"
+                 alt="Memory 03"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+        <div class="paper-note">
+            a little world,
+            just for you ♡
+        </div>
+
+        <!-- PHOTO SLOT 04 -->
+        <div class="photo-frame wide" style="transform:rotate(-5deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-04.jpg"
+                 alt="Memory 04"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+    </div>
+
+
+    <!-- ROW 3 -->
+
+    <div class="scrap-row">
+
+        <!-- PHOTO SLOT 05 -->
+        <div class="photo-frame small" style="transform:rotate(-7deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-05.jpg"
+                 alt="Memory 05"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+        <div class="floating-note right">
+            keep this forever
+        </div>
+
+        <!-- PHOTO SLOT 06 -->
+        <div class="photo-frame" style="transform:rotate(8deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-06.jpg"
+                 alt="Memory 06"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+    </div>
+
+
+    <!-- ROW 4 -->
+
+    <div class="scrap-row">
+
+        <div class="paper-note">
+            some things
+            are simply priceless ✦
+        </div>
+
+        <!-- PHOTO SLOT 07 -->
+        <div class="photo-frame wide" style="transform:rotate(4deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-07.jpg"
+                 alt="Memory 07"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+        <div class="little-star">♡</div>
+
+    </div>
+
+
+    <!-- ROW 5 -->
+
+    <div class="scrap-row">
+
+        <!-- PHOTO SLOT 08 -->
+        <div class="photo-frame tall" style="transform:rotate(-5deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-08.jpg"
+                 alt="Memory 08"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+        <!-- PHOTO SLOT 09 -->
+        <div class="photo-frame small" style="transform:rotate(8deg)">
+            <div class="tape"></div>
+            <img src="page3-photo-09.jpg"
+                 alt="Memory 09"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="photo-placeholder" style="display:none"></div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VIDEO MEMORIES -->
+
+<section class="video-section">
+
+    <div class="section-heading">
+        <h2>Little Moving Memories</h2>
+        <p>Some moments deserve to move ♡</p>
+    </div>
+
+    <div class="video-grid">
+
+        <!-- VIDEO SLOT 01 -->
+        <div class="video-card">
+
+            <div class="video-wrap">
+
+                <div class="video-placeholder">
+                    <span>▶</span>
+                    VIDEO SLOT 01
+                </div>
+
+                <video controls preload="metadata"
+                       onloadeddata="this.previousElementSibling.style.display='none'">
+                    <source src="page3-video-01.mp4" type="video/mp4">
+                </video>
+
+            </div>
+
+        </div>
+
+
+        <!-- VIDEO SLOT 02 -->
+        <div class="video-card">
+
+            <div class="video-wrap">
+
+                <div class="video-placeholder">
+                    <span>▶</span>
+                    VIDEO SLOT 02
+                </div>
+
+                <video controls preload="metadata"
+                       onloadeddata="this.previousElementSibling.style.display='none'">
+                    <source src="page3-video-02.mp4" type="video/mp4">
+                </video>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SIX DESTINATIONS -->
+
+<section class="adventures">
+
+    <div class="adventures-heading">
+
+        <p class="eyebrow">Choose your next little adventure</p>
+
+        <h2>Where shall we go next?</h2>
+
+        <p>
+            There are little surprises hiding in every corner.
+            Pick one and let's explore.
+        </p>
+
+    </div>
+
+
+    <div class="adventure-grid">
+
+        <a href="page4.html" class="adventure">
+            <span class="number">01 · THE PAST</span>
+            <h3>Our Memories</h3>
+            <p>A collection of moments worth keeping.</p>
+            <span class="arrow">↗</span>
+        </a>
+
+        <a href="page5.html" class="adventure">
+            <span class="number">02 · THE SOUNDTRACK</span>
+            <h3>Music Corner</h3>
+            <p>Songs, feelings and little melodies.</p>
+            <span class="arrow">↗</span>
+        </a>
+
+        <a href="page6.html" class="adventure">
+            <span class="number">03 · THE GAME</span>
+            <h3>Birthday Quiz</h3>
+            <p>Let's see how well you know this little world.</p>
+            <span class="arrow">↗</span>
+        </a>
+
+        <a href="page7.html" class="adventure">
+            <span class="number">04 · THE FUTURE</span>
+            <h3>Our Dreams</h3>
+            <p>All the little things waiting ahead.</p>
+            <span class="arrow">↗</span>
+        </a>
+
+        <a href="page8.html" class="adventure">
+            <span class="number">05 · THE MYSTERY</span>
+            <h3>Hidden Surprises</h3>
+            <p>Some things are better discovered.</p>
+            <span class="arrow">↗</span>
+        </a>
+
+        <a href="page9.html" class="adventure">
+            <span class="number">06 · FROM THE HEART</span>
+            <h3>A Little Letter</h3>
+            <p>Something I wanted you to read.</p>
+            <span class="arrow">↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<footer class="footer">
+
+    <div class="script">A little world, just for you ♡</div>
+
+    <p>Made with lots of love · Always your birthday collection</p>
+
+</footer>
+
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    /* GOLDEN DUST PARTICLES */
+    const dustLayer = document.querySelector(".dust-layer");
+
+    if (
+        dustLayer &&
+        !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ) {
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement("span");
+
+            particle.className = "gold-dust";
+            particle.style.left = `${Math.random() * 100}%`;
+            particle.style.top = `${65 + Math.random() * 45}%`;
+
+            particle.style.setProperty(
+                "--duration",
+                `${10 + Math.random() * 13}s`
+            );
+
+            particle.style.setProperty(
+                "--delay",
+                `${-Math.random() * 18}s`
+            );
+
+            particle.style.setProperty(
+                "--drift",
+                `${Math.round(Math.random() * 90 - 45)}px`
+            );
+
+            if (Math.random() > 0.72) {
+                particle.style.width = "2px";
+                particle.style.height = "2px";
+            }
+
+            dustLayer.appendChild(particle);
+        }
+    }
+
+    /* SCROLL REVEAL ANIMATIONS */
+    const revealTargets = document.querySelectorAll(
+        ".memory-intro, .photo-frame, .floating-note, " +
+        ".paper-note, .little-star, .section-heading, " +
+        ".video-card, .adventures-heading, .adventure, .footer"
+    );
+
+    revealTargets.forEach((element, index) => {
+        element.classList.add("reveal");
+
+        element.style.transitionDelay =
+            `${(index % 4) * 90}ms`;
+    });
+
+    if ("IntersectionObserver" in window) {
+
+        const revealObserver = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            },
+            {
+                threshold: 0.12,
+                rootMargin: "0px 0px -35px 0px"
+            }
+        );
+
+        revealTargets.forEach(element => {
+            revealObserver.observe(element);
+        });
+
+    } else {
+        revealTargets.forEach(element => {
+            element.classList.add("is-visible");
+        });
+    }
+
+});
+</script>
+</body>
+</html>

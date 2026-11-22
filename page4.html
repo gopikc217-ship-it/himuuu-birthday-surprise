@@ -1,0 +1,1311 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>01 · The Past — A Little Journey</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --night: #160d12;
+  --cherry: #281019;
+  --wine: #4b182b;
+  --wine-light: #70283e;
+  --gold: #b28a68;
+  --gold-soft: #d5b7a5;
+  --paper: #ead8c5;
+  --paper-dark: #cbb49f;
+  --muted: #c7aeb0;
+  --rose: #b77b83;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  background: var(--night);
+}
+
+body {
+  margin: 0;
+  color: var(--paper);
+  background:
+    radial-gradient(ellipse at 15% 8%, #4b182b55, transparent 34%),
+    radial-gradient(ellipse at 90% 35%, #70283e22, transparent 35%),
+    linear-gradient(180deg, #160d12, #211018 48%, #160d12);
+  font-family: "Lato", sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 20;
+  opacity: .13;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+}
+
+a { color: inherit; text-decoration: none; }
+
+button { font: inherit; }
+
+.page-shell {
+  width: min(1160px, 92%);
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
+
+.top-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 27px 0;
+  color: var(--gold-soft);
+  font-size: .72rem;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+
+.nav-link {
+  opacity: .8;
+  transition: .3s ease;
+}
+
+.nav-link:hover {
+  opacity: 1;
+  color: var(--paper);
+  transform: translateY(-2px);
+}
+
+.nav-mark {
+  font-family: "Parisienne", cursive;
+  font-size: 1.5rem;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 570px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  padding: 80px 18px 100px;
+}
+
+.hero::before,
+.hero::after {
+  content: "✦";
+  position: absolute;
+  color: var(--gold);
+  opacity: .55;
+  font-size: 1.3rem;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+.hero::before { top: 20%; left: 16%; }
+.hero::after { bottom: 22%; right: 17%; animation-delay: 1.4s; }
+
+.hero-inner { max-width: 760px; }
+
+.eyebrow {
+  color: var(--gold);
+  font-size: .7rem;
+  letter-spacing: .34em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: clamp(3.8rem, 9vw, 7.2rem);
+  line-height: .9;
+  margin: 0;
+  color: var(--paper);
+  text-shadow: 0 8px 35px #0008;
+}
+
+.hero-script {
+  font-family: "Parisienne", cursive;
+  font-size: clamp(2rem, 5vw, 3.3rem);
+  color: var(--rose);
+  margin: 18px 0 20px;
+}
+
+.hero-description {
+  max-width: 490px;
+  margin: auto;
+  color: var(--muted);
+  line-height: 1.9;
+  font-size: .93rem;
+  font-weight: 300;
+}
+
+.hero-stamp {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border-top: 1px solid #b28a6860;
+  border-bottom: 1px solid #b28a6860;
+  padding: 11px 19px;
+  margin-top: 35px;
+  color: var(--gold-soft);
+  font-size: .65rem;
+  letter-spacing: .22em;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--gold);
+  font-size: .65rem;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  animation: bob 2.5s infinite;
+}
+
+/* Chapter headings */
+
+.chapter {
+  position: relative;
+  padding: 78px 0 90px;
+}
+
+.chapter-heading {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 55px;
+  position: relative;
+  z-index: 2;
+}
+
+.chapter-number {
+  color: var(--gold);
+  letter-spacing: .3em;
+  font-size: .65rem;
+  text-transform: uppercase;
+  margin-bottom: 13px;
+}
+
+.chapter-heading h2 {
+  font: 500 clamp(2.5rem, 6vw, 4.4rem)/1 "Cormorant Garamond", serif;
+  margin: 0;
+  color: var(--paper);
+}
+
+.chapter-heading p {
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.8;
+  font-weight: 300;
+  margin: 16px auto 0;
+}
+
+.chapter-heading .script {
+  font: 1.8rem "Parisienne", cursive;
+  color: var(--rose);
+  margin-top: 10px;
+}
+
+/* Photo scrapbook */
+
+.scrapbook {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 34px 24px;
+  align-items: center;
+  position: relative;
+}
+
+.photo-card {
+  grid-column: span 3;
+  position: relative;
+  padding: 10px 10px 13px;
+  background: #ead8c5;
+  box-shadow: 0 15px 35px #0007;
+  transform: rotate(var(--tilt, -2deg));
+  transition: transform .55s ease, box-shadow .55s ease;
+  color: #3b2226;
+  min-width: 0;
+}
+
+.photo-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.025);
+  box-shadow: 0 24px 45px #0009;
+  z-index: 5;
+}
+
+.photo-card.wide { grid-column: span 6; }
+.photo-card.tall { grid-column: span 3; }
+.photo-card.small { grid-column: span 2; }
+.photo-card.offset-left { margin-top: 28px; }
+.photo-card.offset-right { margin-bottom: 28px; }
+
+.photo-frame {
+  width: 100%;
+  height: 220px;
+  background: #38232a;
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-card.wide .photo-frame { height: 285px; }
+.photo-card.tall .photo-frame { height: 310px; }
+.photo-card.small .photo-frame { height: 170px; }
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform .8s ease;
+}
+
+.photo-card:hover img { transform: scale(1.055); }
+
+.photo-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 15px;
+  color: #d5b7a5;
+  background:
+    radial-gradient(circle at 50% 30%, #70283e88, transparent 60%),
+    linear-gradient(145deg, #29151e, #4b2634);
+}
+
+.photo-placeholder .placeholder-icon {
+  font-size: 1.5rem;
+  opacity: .8;
+}
+
+.photo-placeholder span:last-child {
+  font: 1rem "Cormorant Garamond", serif;
+  letter-spacing: .06em;
+}
+
+.photo-card .tape {
+  position: absolute;
+  width: 66px;
+  height: 19px;
+  background: #c6a17b99;
+  top: -8px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  z-index: 2;
+}
+
+.photo-card.no-tape .tape { display: none; }
+
+.photo-card .tiny-mark {
+  text-align: center;
+  padding-top: 8px;
+  font: 1rem "Parisienne", cursive;
+  color: #79505a;
+  min-height: 22px;
+}
+
+/* Film / video frames */
+
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 30px;
+  align-items: center;
+  margin: 50px 0;
+}
+
+.video-card {
+  grid-column: span 3;
+  background: #24141b;
+  padding: 12px;
+  border: 1px solid #b28a684d;
+  box-shadow: 0 18px 38px #0006;
+  position: relative;
+  transform: rotate(var(--tilt, 1deg));
+  transition: transform .5s ease, border-color .5s ease;
+}
+
+.video-card:hover {
+  transform: rotate(0deg) translateY(-6px);
+  border-color: var(--gold);
+}
+
+.video-card.wide { grid-column: span 6; }
+
+.video-window {
+  aspect-ratio: 16 / 9;
+  background: #100a0e;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-window video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #100a0e;
+}
+
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  text-align: center;
+  padding: 18px;
+  color: var(--gold-soft);
+  background:
+    radial-gradient(circle at center, #70283e66, transparent 60%),
+    linear-gradient(135deg, #160d12, #321923);
+  pointer-events: none;
+}
+
+.video-placeholder .play-symbol {
+  border: 1px solid #d5b7a577;
+  border-radius: 50%;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding-left: 3px;
+  font-size: .9rem;
+}
+
+.video-placeholder span:last-child {
+  font: 1.1rem "Cormorant Garamond", serif;
+}
+
+.film-holes {
+  height: 10px;
+  margin: 8px 0 3px;
+  opacity: .5;
+  background: repeating-linear-gradient(90deg, #b28a68 0 13px, transparent 13px 24px);
+  mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+}
+
+.video-mark {
+  text-align: center;
+  font-size: .62rem;
+  letter-spacing: .22em;
+  color: var(--gold);
+  padding: 9px 0 2px;
+  text-transform: uppercase;
+}
+
+/* Small notes */
+
+.note {
+  position: relative;
+  max-width: 260px;
+  padding: 19px 20px;
+  background: linear-gradient(135deg, #ead8c5, #d7c0a9);
+  color: #4b2932;
+  box-shadow: 0 12px 28px #0005;
+  font: 1.35rem/1.25 "Parisienne", cursive;
+  text-align: center;
+  transform: rotate(var(--tilt, 2deg));
+  margin: 42px auto;
+}
+
+.note::before {
+  content: "";
+  position: absolute;
+  top: -7px;
+  left: 42%;
+  width: 54px;
+  height: 15px;
+  background: #b28a6899;
+  transform: rotate(-4deg);
+}
+
+.note small {
+  display: block;
+  font: .55rem "Lato", sans-serif;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #895b61;
+  margin-bottom: 8px;
+}
+
+.note-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  flex-wrap: wrap;
+  margin: 55px 0;
+}
+
+.note-row .note { margin: 0; }
+
+.side-decoration {
+  position: absolute;
+  color: var(--rose);
+  opacity: .45;
+  font-size: 1.4rem;
+  pointer-events: none;
+  animation: drift 7s ease-in-out infinite;
+}
+
+.side-decoration.one { left: -35px; top: 25%; }
+.side-decoration.two { right: -25px; top: 65%; animation-delay: 2s; }
+
+/* The timeline */
+
+.timeline-wrap {
+  position: relative;
+  max-width: 760px;
+  margin: 80px auto 50px;
+  padding: 10px 0;
+}
+
+.timeline-line {
+  position: absolute;
+  width: 1px;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  background: linear-gradient(180deg, transparent, #b28a68, #b77b83, #b28a68, transparent);
+  transform: translateX(-50%);
+  transform-origin: top;
+  opacity: .7;
+}
+
+.timeline-entry {
+  width: 50%;
+  padding: 25px 38px;
+  position: relative;
+}
+
+.timeline-entry:nth-child(odd) { margin-left: 50%; }
+
+.timeline-entry::before {
+  content: "✦";
+  position: absolute;
+  top: 34px;
+  left: -7px;
+  color: var(--gold);
+  font-size: .8rem;
+}
+
+.timeline-entry:nth-child(even)::before {
+  left: auto;
+  right: -7px;
+}
+
+.timeline-entry .time-label {
+  color: var(--gold);
+  font-size: .62rem;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.timeline-entry h3 {
+  font: 500 1.8rem "Cormorant Garamond", serif;
+  margin: 0 0 8px;
+  color: var(--paper);
+}
+
+.timeline-entry p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: .82rem;
+  margin: 0;
+}
+
+/* Present-day ending */
+
+.final-chapter {
+  text-align: center;
+  padding: 100px 18px 90px;
+  position: relative;
+}
+
+.final-paper {
+  max-width: 720px;
+  margin: auto;
+  padding: clamp(30px, 6vw, 60px);
+  color: #492b31;
+  background:
+    radial-gradient(circle at 10% 10%, #fff7e4aa, transparent 35%),
+    linear-gradient(135deg, #ead8c5, #d6bda6);
+  box-shadow: 0 25px 65px #0008;
+  position: relative;
+  transform: rotate(-.5deg);
+}
+
+.final-paper::before {
+  content: "✦";
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  color: #9b6c68;
+  font-size: 1.1rem;
+}
+
+.final-paper .small-title {
+  font-size: .62rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+  color: #95666a;
+}
+
+.final-paper h2 {
+  font: 500 clamp(2.5rem, 6vw, 4.5rem)/.98 "Cormorant Garamond", serif;
+  margin: 18px 0;
+}
+
+.final-paper p {
+  max-width: 520px;
+  margin: 0 auto;
+  font: 1.18rem/1.8 "Cormorant Garamond", serif;
+}
+
+.final-paper .signature {
+  font: 2rem "Parisienne", cursive;
+  color: #8b4c5b;
+  margin-top: 24px;
+}
+
+.end-flourish {
+  color: var(--gold);
+  font-size: 1.4rem;
+  margin: 30px 0 0;
+  letter-spacing: .5em;
+}
+
+.chapter-complete {
+  margin: 35px 0 10px;
+  color: var(--gold-soft);
+  font-size: .65rem;
+  letter-spacing: .25em;
+  text-transform: uppercase;
+}
+
+.chapter-complete span { color: var(--rose); }
+
+.bottom-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 20px 0 80px;
+}
+
+.chapter-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border: 1px solid #b28a6877;
+  color: var(--paper);
+  background: #281019aa;
+  font-size: .68rem;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  transition: .35s ease;
+}
+
+.chapter-button:hover {
+  background: var(--wine);
+  border-color: var(--gold);
+  transform: translateY(-4px);
+}
+
+.chapter-button.primary {
+  background: #4b182b;
+  border-color: #b28a68aa;
+}
+
+footer {
+  text-align: center;
+  padding: 25px 10px 35px;
+  color: #a98a88;
+  font: 1.2rem "Parisienne", cursive;
+  border-top: 1px solid #b28a6825;
+}
+
+/* Floating details and reveal effects */
+
+#floating-dust {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.dust {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #d5b7a5;
+  opacity: 0;
+  animation: dust-rise linear infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity .9s ease, transform .9s cubic-bezier(.2,.7,.2,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes dust-rise {
+  0% { transform: translateY(30px); opacity: 0; }
+  15% { opacity: .45; }
+  85% { opacity: .25; }
+  100% { transform: translateY(-110vh); opacity: 0; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: .3; transform: scale(.8); }
+  50% { opacity: .9; transform: scale(1.2); }
+}
+
+@keyframes bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -7px); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0) rotate(-8deg); }
+  50% { transform: translateY(-18px) rotate(8deg); }
+}
+
+/* Responsive layout */
+
+@media (max-width: 760px) {
+  .top-nav { font-size: .58rem; letter-spacing: .12em; }
+  .nav-mark { font-size: 1.25rem; }
+  .hero { min-height: 500px; }
+  .hero::before { left: 7%; }
+  .hero::after { right: 7%; }
+
+  .chapter { padding: 60px 0 65px; }
+  .chapter-heading { margin-bottom: 38px; }
+
+  .scrapbook { gap: 24px 13px; }
+  .photo-card { grid-column: span 6; }
+  .photo-card.wide { grid-column: span 12; }
+  .photo-card.tall { grid-column: span 6; }
+  .photo-card.small { grid-column: span 4; }
+  .photo-frame { height: 190px; }
+  .photo-card.wide .photo-frame { height: 235px; }
+  .photo-card.tall .photo-frame { height: 260px; }
+  .photo-card.small .photo-frame { height: 140px; }
+
+  .video-grid { gap: 18px; }
+  .video-card { grid-column: span 6; }
+  .video-card.wide { grid-column: span 6; }
+
+  .timeline-entry { padding: 22px 22px; }
+  .timeline-entry h3 { font-size: 1.5rem; }
+  .timeline-entry p { font-size: .76rem; }
+
+  .side-decoration.one { left: -10px; }
+  .side-decoration.two { right: -8px; }
+}
+
+@media (max-width: 460px) {
+  .page-shell { width: 91%; }
+  .top-nav { padding: 20px 0; }
+  .nav-link { max-width: 115px; line-height: 1.6; }
+  .hero { min-height: 460px; padding-top: 65px; }
+  .hero-description { font-size: .84rem; }
+
+  .photo-card { grid-column: span 6; padding: 7px 7px 10px; }
+  .photo-card.wide { grid-column: span 12; }
+  .photo-card.tall { grid-column: span 6; }
+  .photo-card.small { grid-column: span 6; }
+  .photo-frame { height: 165px; }
+  .photo-card.wide .photo-frame { height: 205px; }
+  .photo-card.tall .photo-frame { height: 220px; }
+  .photo-card.small .photo-frame { height: 165px; }
+
+  .note-row { gap: 28px; }
+  .note { max-width: 230px; font-size: 1.2rem; }
+
+  .timeline-wrap { margin-top: 55px; }
+  .timeline-entry { padding: 20px 17px; }
+  .timeline-entry h3 { font-size: 1.3rem; }
+  .timeline-entry p { font-size: .72rem; line-height: 1.65; }
+
+  .chapter-button { width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<div id="floating-dust"></div>
+
+<div class="page-shell">
+
+  <nav class="top-nav">
+    <a class="nav-link" href="page3.html">← Back to your world</a>
+    <div class="nav-mark">For my birthday girl ♡</div>
+    
+  </nav>
+
+  <!-- OPENING -->
+
+  <header class="hero">
+    <div class="hero-inner reveal">
+      <div class="eyebrow">A little journey through time</div>
+      <h1>THE PAST</h1>
+      <div class="hero-script">Every version of you ♡</div>
+      <p class="hero-description">
+        Before today, before all the stories you know by heart,
+        there were a thousand little moments that made you who you are.
+        Let's turn a few pages back.
+      </p>
+      <div class="hero-stamp">01 &nbsp; · &nbsp; A COLLECTION OF LITTLE FOREVERS</div>
+    </div>
+    <div class="scroll-cue">turn the page &nbsp; ↓</div>
+  </header>
+
+  <!-- CHAPTER 01: CHILDHOOD -->
+
+  <section class="chapter">
+    <span class="side-decoration one">✧</span>
+
+    <div class="chapter-heading reveal">
+      <div class="chapter-number">01 &nbsp; · &nbsp; Once upon a time</div>
+      <h2>Once Upon a Little Girl</h2>
+      <div class="script">the very first pages</div>
+      <p>
+        Before the big dreams, the busy days and everything in between,
+        there was a little girl with a whole world waiting for her.
+      </p>
+    </div>
+
+    <div class="scrapbook">
+
+      <div class="photo-card tall reveal" style="--tilt:-3deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-01.jpg" alt="A childhood memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>A little piece of the beginning</span></div>
+        </div>
+        <div class="tiny-mark">once upon a time</div>
+      </div>
+
+      <div class="photo-card wide offset-right reveal" style="--tilt:2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-02.jpg" alt="A childhood photograph" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✧</span><span>Little moments, big memories</span></div>
+        </div>
+        <div class="tiny-mark">a world of her own</div>
+      </div>
+
+      <div class="photo-card small reveal" style="--tilt:3deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-03.jpg" alt="A childhood moment" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>sweet beginnings</span></div>
+        </div>
+        <div class="tiny-mark">little things</div>
+      </div>
+
+      <div class="photo-card tall offset-left reveal" style="--tilt:-2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-04.jpg" alt="A childhood memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✦</span><span>A moment from another day</span></div>
+        </div>
+        <div class="tiny-mark">kept forever</div>
+      </div>
+
+      <div class="photo-card reveal" style="--tilt:2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-05.jpg" alt="A childhood photograph" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>the little years</span></div>
+        </div>
+        <div class="tiny-mark">a lovely memory</div>
+      </div>
+
+    </div>
+
+    <div class="note-row reveal">
+      <div class="note" style="--tilt:-3deg">
+        <small>a little reminder</small>
+        Every little version of you deserves to be loved.
+      </div>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card reveal" style="--tilt:-2deg">
+        <div class="film-holes"></div>
+        <div class="video-window">
+          <video controls playsinline preload="metadata">
+            <source src="page4-video-01.mp4" type="video/mp4">
+          </video>
+          <div class="video-placeholder"><span class="play-symbol">▶</span><span>A little moment in motion</span></div>
+        </div>
+        <div class="film-holes"></div>
+        <div class="video-mark">A memory in motion · 01</div>
+      </div>
+
+      <div class="video-card reveal" style="--tilt:2deg">
+        <div class="film-holes"></div>
+        <div class="video-window">
+          <video controls playsinline preload="metadata">
+            <source src="page4-video-02.mp4" type="video/mp4">
+          </video>
+          <div class="video-placeholder"><span class="play-symbol">▶</span><span>One for the memory book</span></div>
+        </div>
+        <div class="film-holes"></div>
+        <div class="video-mark">A memory in motion · 02</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CHAPTER 02: GROWING UP -->
+
+  <section class="chapter">
+    <span class="side-decoration two">✧</span>
+
+    <div class="chapter-heading reveal">
+      <div class="chapter-number">02 &nbsp; · &nbsp; Little by little</div>
+      <h2>Growing Through the Years</h2>
+      <div class="script">one memory at a time</div>
+      <p>
+        Somewhere between little dreams and bigger ones,
+        days turned into years, and the world kept giving you
+        new things to discover.
+      </p>
+    </div>
+
+    <div class="scrapbook">
+
+      <div class="photo-card wide reveal" style="--tilt:-2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-06.jpg" alt="Growing up memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✧</span><span>Somewhere along the way</span></div>
+        </div>
+        <div class="tiny-mark">the days that made you</div>
+      </div>
+
+      <div class="photo-card reveal" style="--tilt:3deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-07.jpg" alt="A memory from growing up" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>little adventures</span></div>
+        </div>
+        <div class="tiny-mark">a day to remember</div>
+      </div>
+
+      <div class="photo-card tall offset-right reveal" style="--tilt:-2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-08.jpg" alt="A growing up memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✦</span><span>Pieces of your story</span></div>
+        </div>
+        <div class="tiny-mark">one of many</div>
+      </div>
+
+      <div class="photo-card small reveal" style="--tilt:2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-09.jpg" alt="A school or friends memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>good old days</span></div>
+        </div>
+        <div class="tiny-mark">little joys</div>
+      </div>
+
+      <div class="photo-card reveal" style="--tilt:-3deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-10.jpg" alt="A growing up photograph" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✧</span><span>A favourite little memory</span></div>
+        </div>
+        <div class="tiny-mark">somewhere in time</div>
+      </div>
+
+      <div class="photo-card wide offset-left reveal" style="--tilt:1deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-11.jpg" alt="A special memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>And the story kept growing</span></div>
+        </div>
+        <div class="tiny-mark">a page worth keeping</div>
+      </div>
+
+    </div>
+
+    <div class="note-row reveal">
+      <div class="note" style="--tilt:2deg">
+        <small>from these pages</small>
+        So many little moments. So many reasons to smile.
+      </div>
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card wide reveal" style="--tilt:-1deg">
+        <div class="film-holes"></div>
+        <div class="video-window">
+          <video controls playsinline preload="metadata">
+            <source src="page4-video-03.mp4" type="video/mp4">
+          </video>
+          <div class="video-placeholder"><span class="play-symbol">▶</span><span>A little time capsule</span></div>
+        </div>
+        <div class="film-holes"></div>
+        <div class="video-mark">The moving pages · 03</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CHAPTER 03: WHO SHE IS TODAY -->
+
+  <section class="chapter">
+    <div class="chapter-heading reveal">
+      <div class="chapter-number">03 &nbsp; · &nbsp; Here and now</div>
+      <h2>The Girl You Became</h2>
+      <div class="script">and still becoming</div>
+      <p>
+        Look at you now. All the little things you've tried,
+        the places you've been, the dreams you've chased
+        and the person you continue to become.
+      </p>
+    </div>
+
+    <div class="scrapbook">
+
+      <div class="photo-card tall reveal" style="--tilt:2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-12.jpg" alt="A recent photograph" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>This version of you</span></div>
+        </div>
+        <div class="tiny-mark">look at you</div>
+      </div>
+
+      <div class="photo-card wide offset-right reveal" style="--tilt:-2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-13.jpg" alt="A recent happy memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✧</span><span>More of the world to discover</span></div>
+        </div>
+        <div class="tiny-mark">still becoming</div>
+      </div>
+
+      <div class="photo-card reveal" style="--tilt:-3deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-14.jpg" alt="A favourite recent memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>your kind of magic</span></div>
+        </div>
+        <div class="tiny-mark">just being you</div>
+      </div>
+
+      <div class="photo-card tall offset-left reveal" style="--tilt:2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-15.jpg" alt="A recent portrait or memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✦</span><span>A moment in the present</span></div>
+        </div>
+        <div class="tiny-mark">this chapter</div>
+      </div>
+
+      <div class="photo-card wide reveal" style="--tilt:1deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-16.jpg" alt="A recent life memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>The story is still unfolding</span></div>
+        </div>
+        <div class="tiny-mark">and the best is yet to come</div>
+      </div>
+
+    </div>
+
+    <div class="video-grid">
+
+      <div class="video-card reveal" style="--tilt:2deg">
+        <div class="film-holes"></div>
+        <div class="video-window">
+          <video controls playsinline preload="metadata">
+            <source src="page4-video-04.mp4" type="video/mp4">
+          </video>
+          <div class="video-placeholder"><span class="play-symbol">▶</span><span>A little glimpse of today</span></div>
+        </div>
+        <div class="film-holes"></div>
+        <div class="video-mark">The present · 04</div>
+      </div>
+
+      <div class="video-card reveal" style="--tilt:-2deg">
+        <div class="film-holes"></div>
+        <div class="video-window">
+          <video controls playsinline preload="metadata">
+            <source src="page4-video-05.mp4" type="video/mp4">
+          </video>
+          <div class="video-placeholder"><span class="play-symbol">▶</span><span>One more moment to keep</span></div>
+        </div>
+        <div class="film-holes"></div>
+        <div class="video-mark">A little piece of now · 05</div>
+      </div>
+
+    </div>
+
+    <div class="note-row reveal">
+      <div class="note" style="--tilt:-2deg">
+        <small>never forget</small>
+        You don't have to stop growing to be proud of how far you've come.
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTER 04: OUR CHAPTER -->
+
+  <section class="chapter">
+    <div class="chapter-heading reveal">
+      <div class="chapter-number">04 &nbsp; · &nbsp; A little us</div>
+      <h2>And Then, Our Chapter</h2>
+      <div class="script">two stories, one little corner</div>
+      <p>
+        And somewhere along the way, our paths crossed.
+        Your story was already beautiful, and I'm grateful
+        that I get to be a small part of what comes next.
+      </p>
+    </div>
+
+    <div class="scrapbook">
+
+      <div class="photo-card wide reveal" style="--tilt:-2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-17.jpg" alt="A memory together" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>Where our pages meet</span></div>
+        </div>
+        <div class="tiny-mark">our little chapter</div>
+      </div>
+
+      <div class="photo-card reveal" style="--tilt:3deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-18.jpg" alt="A shared memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✧</span><span>A moment with you</span></div>
+        </div>
+        <div class="tiny-mark">one for us</div>
+      </div>
+
+      <div class="photo-card tall offset-right reveal" style="--tilt:-2deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-19.jpg" alt="Another shared memory" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">♡</span><span>Our favourite little corner</span></div>
+        </div>
+        <div class="tiny-mark">together in a frame</div>
+      </div>
+
+      <div class="photo-card wide reveal" style="--tilt:1deg">
+        <div class="tape"></div>
+        <div class="photo-frame">
+          <img src="page4-photo-20.jpg" alt="A special moment together" onerror="this.style.display='none'">
+          <div class="photo-placeholder"><span class="placeholder-icon">✦</span><span>And more pages to come</span></div>
+        </div>
+        <div class="tiny-mark">to be continued ♡</div>
+      </div>
+
+    </div>
+
+    <div class="video-grid">
+      <div class="video-card wide reveal" style="--tilt:1deg">
+        <div class="film-holes"></div>
+        <div class="video-window">
+          <video controls playsinline preload="metadata">
+            <source src="page4-video-06.mp4" type="video/mp4">
+          </video>
+          <div class="video-placeholder"><span class="play-symbol">▶</span><span>A little piece of our story</span></div>
+        </div>
+        <div class="film-holes"></div>
+        <div class="video-mark">Our chapter · 06</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIMELINE / BRIDGE TO THE PRESENT -->
+
+  <section class="chapter">
+    <div class="chapter-heading reveal">
+      <div class="chapter-number">A little pause</div>
+      <h2>Look How Far You've Come</h2>
+      <div class="script">and this is only the beginning</div>
+      <p>
+        Not every memory needs a date. Some things are simply
+        worth remembering, exactly as they are.
+      </p>
+    </div>
+
+    <div class="timeline-wrap">
+      <div class="timeline-line"></div>
+
+      <div class="timeline-entry reveal">
+        <div class="time-label">The beginning</div>
+        <h3>A little world</h3>
+        <p>A thousand tiny things, a thousand firsts, and a story just getting started.</p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="time-label">Along the way</div>
+        <h3>So much to discover</h3>
+        <p>New faces, new places, lessons, laughter and moments that stayed.</p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="time-label">The girl today</div>
+        <h3>Still becoming</h3>
+        <p>More dreams to chase, more memories to make, and so much life ahead.</p>
+      </div>
+
+      <div class="timeline-entry reveal">
+        <div class="time-label">Our little chapter</div>
+        <h3>To be continued</h3>
+        <p>Two stories finding their own little place in the pages still unwritten.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ENDING -->
+
+  <section class="final-chapter">
+    <div class="final-paper reveal">
+      <div class="small-title">a note before the next chapter</div>
+      <h2>Your story is still unfolding.</h2>
+      <p>
+        And this, birthday girl, is only a little glimpse of it.
+        There are so many pages left for you to write, so many
+        places to see, dreams to chase and versions of yourself
+        waiting to bloom.
+        <br><br>
+        I hope you always look back at your journey with kindness
+        and look ahead with excitement.
+      </p>
+      <div class="signature">Keep becoming, beautiful soul ♡</div>
+    </div>
+
+    <div class="end-flourish">✦ &nbsp; ✧ &nbsp; ✦</div>
+    <div class="chapter-complete">01 · THE PAST <span>— COMPLETE</span></div>
+  </section>
+
+  <div class="bottom-navigation">
+    <a class="chapter-button" href="page3.html">← Back to Your Little World</a>
+    <a class="chapter-button primary" href="page5.html">02 · The Music &nbsp; →</a>
+  </div>
+
+</div>
+
+<footer>
+  one little life, a thousand little memories ♡
+</footer>
+
+<script>
+/* Scroll reveal */
+const revealItems = document.querySelectorAll(".reveal");
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.12
+});
+
+revealItems.forEach((item) => revealObserver.observe(item));
+
+/* Floating golden dust */
+const dustLayer = document.getElementById("floating-dust");
+
+for (let i = 0; i < 24; i++) {
+  const dust = document.createElement("span");
+  dust.className = "dust";
+  dust.style.left = Math.random() * 100 + "%";
+  dust.style.top = (Math.random() * 100) + "%";
+  dust.style.animationDuration = (12 + Math.random() * 16) + "s";
+  dust.style.animationDelay = (Math.random() * 15) + "s";
+  dust.style.width = (2 + Math.random() * 2) + "px";
+  dust.style.height = dust.style.width;
+  dustLayer.appendChild(dust);
+}
+
+/* Keep empty photo placeholders visible, hide them when an image loads */
+document.querySelectorAll(".photo-frame").forEach((frame) => {
+  const img = frame.querySelector("img");
+  const placeholder = frame.querySelector(".photo-placeholder");
+
+  if (!img || !placeholder) return;
+
+  img.addEventListener("load", () => {
+    placeholder.style.display = "none";
+  });
+
+  img.addEventListener("error", () => {
+    img.style.display = "none";
+    placeholder.style.display = "flex";
+  });
+
+  if (img.complete && img.naturalWidth > 0) {
+    placeholder.style.display = "none";
+  }
+});
+
+/* Video placeholders disappear once their video can play */
+document.querySelectorAll(".video-window").forEach((windowBox) => {
+  const video = windowBox.querySelector("video");
+  const placeholder = windowBox.querySelector(".video-placeholder");
+
+  if (!video || !placeholder) return;
+
+  video.addEventListener("loadeddata", () => {
+    placeholder.style.display = "none";
+  });
+
+  video.addEventListener("error", () => {
+    placeholder.style.display = "flex";
+  });
+});
+</script>
+
+</body>
+</html>

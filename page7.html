@@ -1,0 +1,1645 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#100a12">
+<title>Our Dreams — A Little World of Tomorrow ♡</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --night:#100a12;
+  --night2:#1b101a;
+  --wine:#321522;
+  --wine2:#512337;
+  --gold:#c19a70;
+  --gold-light:#e5c9a4;
+  --cream:#eadbc9;
+  --muted:#c5b0b0;
+  --rose:#bd8991;
+  --line:rgba(193,154,112,.24);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+html{scroll-behavior:smooth}
+
+body{
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(92,44,72,.25),transparent 48%),
+    radial-gradient(ellipse at 10% 45%,rgba(92,44,72,.10),transparent 35%),
+    var(--night);
+  color:var(--cream);
+  font-family:'Lato',sans-serif;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+  opacity:.12;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E");
+}
+
+button,a{font:inherit}
+a{color:inherit;text-decoration:none}
+button{cursor:pointer}
+
+.page{
+  position:relative;
+  z-index:2;
+  width:min(1120px,92%);
+  margin:auto;
+}
+
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:28px 0;
+  position:relative;
+  z-index:5;
+}
+
+.back-link{
+  font-size:11px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:var(--gold-light);
+  transition:.3s;
+}
+
+.back-link:hover{color:white;transform:translateX(-4px)}
+
+.chapter{
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+}
+
+/* STARRY SKY */
+
+.sky{
+  position:absolute;
+  inset:0 0 auto;
+  height:800px;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:0;
+}
+
+.moon{
+  position:absolute;
+  top:100px;
+  right:13%;
+  width:105px;
+  height:105px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#f3dfbd,#c5a78d);
+  box-shadow:
+    0 0 35px rgba(229,201,164,.28),
+    0 0 100px rgba(229,201,164,.12),
+    0 0 180px rgba(229,201,164,.06);
+  animation:moonFloat 7s ease-in-out infinite;
+}
+
+.moon::after{
+  content:"";
+  position:absolute;
+  width:105px;
+  height:105px;
+  border-radius:50%;
+  background:#160d17;
+  top:-12px;
+  left:28px;
+}
+
+@keyframes moonFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-13px)}
+}
+
+.star{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:#f3d9ac;
+  border-radius:50%;
+  box-shadow:0 0 9px 2px rgba(229,201,164,.55);
+  animation:twinkle var(--duration,3s) ease-in-out infinite;
+  animation-delay:var(--delay,0s);
+}
+
+@keyframes twinkle{
+  0%,100%{opacity:.25;transform:scale(.7)}
+  50%{opacity:1;transform:scale(1.5)}
+}
+
+.shooting-star{
+  position:absolute;
+  top:150px;
+  left:-120px;
+  width:100px;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#f0d3a8,transparent);
+  transform:rotate(-25deg);
+  opacity:0;
+  animation:shoot 8s linear infinite;
+}
+
+.shooting-star:nth-child(2){animation-delay:3s;top:280px}
+.shooting-star:nth-child(3){animation-delay:6s;top:400px}
+
+@keyframes shoot{
+  0%{transform:translate(0,0) rotate(-25deg);opacity:0}
+  5%{opacity:1}
+  20%{transform:translate(600px,180px) rotate(-25deg);opacity:0}
+  100%{transform:translate(600px,180px) rotate(-25deg);opacity:0}
+}
+
+/* GOLDEN DUST */
+
+.dust-layer{
+  position:fixed;
+  inset:0;
+  z-index:3;
+  pointer-events:none;
+  overflow:hidden;
+}
+
+.gold-dust{
+  position:absolute;
+  bottom:-15px;
+  width:3px;
+  height:3px;
+  border-radius:50%;
+  background:var(--gold-light);
+  box-shadow:0 0 9px 2px rgba(229,201,164,.45);
+  opacity:0;
+  animation:dustRise var(--time,12s) linear infinite;
+  animation-delay:var(--wait,0s);
+}
+
+@keyframes dustRise{
+  0%{transform:translate3d(0,0,0) scale(.5);opacity:0}
+  12%{opacity:.75}
+  75%{opacity:.45}
+  100%{transform:translate3d(var(--drift,30px),-110vh,0) scale(1.2);opacity:0}
+}
+
+/* HERO */
+
+.hero{
+  min-height:690px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
+  padding:90px 15px 110px;
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  animation:heroAppear 1.5s cubic-bezier(.2,.7,.2,1) both;
+}
+
+@keyframes heroAppear{
+  from{opacity:0;transform:translateY(35px);filter:blur(8px)}
+  to{opacity:1;transform:translateY(0);filter:blur(0)}
+}
+
+.eyebrow{
+  font-size:10px;
+  letter-spacing:4px;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:25px;
+}
+
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:clamp(42px,7vw,82px);
+  line-height:1.02;
+  letter-spacing:1px;
+  max-width:900px;
+  margin:auto;
+  text-shadow:0 0 35px rgba(193,154,112,.12);
+}
+
+.hero h1 span{
+  display:block;
+  font-family:'Parisienne',cursive;
+  color:var(--gold-light);
+  font-size:clamp(45px,7vw,80px);
+  margin-top:8px;
+}
+
+.hero-subtitle{
+  font-family:'Parisienne',cursive;
+  font-size:27px;
+  color:var(--rose);
+  margin-top:25px;
+}
+
+.hero-description{
+  max-width:540px;
+  line-height:1.9;
+  font-size:13px;
+  font-weight:300;
+  color:var(--muted);
+  margin:20px auto 0;
+}
+
+.scroll-hint{
+  position:absolute;
+  bottom:38px;
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+  animation:hintFloat 2.5s ease-in-out infinite;
+}
+
+.scroll-hint::after{
+  content:"↓";
+  display:block;
+  font-size:18px;
+  margin-top:10px;
+}
+
+@keyframes hintFloat{
+  0%,100%{transform:translateY(0);opacity:.6}
+  50%{transform:translateY(9px);opacity:1}
+}
+
+/* GENERAL SECTIONS */
+
+section{padding:85px 0;position:relative}
+
+.section-heading{
+  text-align:center;
+  margin-bottom:45px;
+}
+
+.section-heading .small{
+  font-size:9px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--gold);
+  margin-bottom:13px;
+}
+
+.section-heading h2{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(35px,5vw,54px);
+  font-weight:400;
+}
+
+.section-heading p{
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.8;
+  margin-top:12px;
+}
+
+.section-heading h2 em{
+  color:var(--gold-light);
+  font-family:'Parisienne',cursive;
+  font-weight:400;
+}
+
+/* QUOTE */
+
+.quote-card{
+  width:min(760px,95%);
+  margin:0 auto 100px;
+  padding:45px 35px;
+  text-align:center;
+  position:relative;
+  background:linear-gradient(140deg,rgba(75,35,55,.62),rgba(26,15,25,.88));
+  border:1px solid var(--line);
+  box-shadow:0 20px 70px rgba(0,0,0,.22);
+  overflow:hidden;
+}
+
+.quote-card::before,.quote-card::after{
+  content:"✦";
+  position:absolute;
+  color:var(--gold);
+  opacity:.55;
+  font-size:18px;
+}
+
+.quote-card::before{top:17px;left:22px}
+.quote-card::after{bottom:17px;right:22px}
+
+.quote-card p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(23px,3.5vw,34px);
+  line-height:1.55;
+  color:var(--cream);
+}
+
+.quote-card span{
+  display:block;
+  font-family:'Parisienne',cursive;
+  color:var(--gold-light);
+  font-size:22px;
+  margin-top:17px;
+}
+
+/* DREAM CARDS */
+
+.dream-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:22px;
+}
+
+.dream-card{
+  min-height:265px;
+  padding:30px 25px;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(193,154,112,.2);
+  background:
+    radial-gradient(circle at 90% 5%,rgba(180,125,137,.13),transparent 38%),
+    linear-gradient(145deg,rgba(65,31,48,.82),rgba(25,15,24,.95));
+  transition:transform .55s ease,border-color .55s ease,box-shadow .55s ease;
+}
+
+.dream-card::before{
+  content:"";
+  position:absolute;
+  width:170px;
+  height:170px;
+  border:1px solid rgba(193,154,112,.09);
+  border-radius:50%;
+  right:-85px;
+  bottom:-85px;
+  box-shadow:0 0 0 18px rgba(193,154,112,.025),0 0 0 38px rgba(193,154,112,.02);
+  transition:transform .8s ease;
+}
+
+.dream-card:hover{
+  transform:translateY(-9px);
+  border-color:rgba(229,201,164,.5);
+  box-shadow:0 18px 45px rgba(0,0,0,.3),0 0 30px rgba(193,154,112,.07);
+}
+
+.dream-card:hover::before{transform:scale(1.3)}
+
+.dream-icon{
+  font-size:34px;
+  display:block;
+  margin-bottom:24px;
+  filter:drop-shadow(0 0 12px rgba(229,201,164,.25));
+  animation:iconFloat 5s ease-in-out infinite;
+}
+
+.dream-card:nth-child(2) .dream-icon{animation-delay:.6s}
+.dream-card:nth-child(3) .dream-icon{animation-delay:1.2s}
+.dream-card:nth-child(4) .dream-icon{animation-delay:1.8s}
+.dream-card:nth-child(5) .dream-icon{animation-delay:2.4s}
+.dream-card:nth-child(6) .dream-icon{animation-delay:3s}
+
+@keyframes iconFloat{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-7px) rotate(3deg)}
+}
+
+.dream-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:27px;
+  font-weight:500;
+  margin-bottom:12px;
+  color:var(--gold-light);
+  position:relative;
+}
+
+.dream-card p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+  position:relative;
+}
+
+/* OUR SHARED DREAMS */
+
+.shared-section{
+  margin-top:70px;
+  padding:75px 35px;
+  background:linear-gradient(180deg,rgba(46,23,39,.45),rgba(19,12,20,.2));
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.shared-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.shared-card{
+  text-align:center;
+  padding:28px 20px;
+  background:rgba(42,22,36,.62);
+  border:1px solid rgba(193,154,112,.17);
+  transition:.5s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.shared-card:hover{
+  transform:translateY(-8px) scale(1.015);
+  border-color:rgba(229,201,164,.45);
+  box-shadow:0 15px 40px rgba(0,0,0,.25);
+}
+
+.shared-art{
+  height:105px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:48px;
+  margin-bottom:16px;
+  filter:drop-shadow(0 0 15px rgba(193,154,112,.2));
+  animation:artFloat 6s ease-in-out infinite;
+}
+
+.shared-card:nth-child(even) .shared-art{animation-delay:1.5s}
+
+@keyframes artFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-8px)}
+}
+
+.shared-card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:25px;
+  font-weight:500;
+  color:var(--gold-light);
+  margin-bottom:10px;
+}
+
+.shared-card p{
+  font-size:11px;
+  line-height:1.8;
+  color:var(--muted);
+}
+
+/* TIMELINE */
+
+.timeline-section{padding-top:110px}
+
+.timeline{
+  width:min(760px,95%);
+  margin:55px auto 0;
+  position:relative;
+  padding:10px 0;
+}
+
+.timeline-line{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:1px;
+  height:100%;
+  background:rgba(193,154,112,.13);
+  transform:translateX(-50%);
+}
+
+.timeline-progress{
+  position:absolute;
+  left:50%;
+  top:0;
+  width:2px;
+  height:0;
+  transform:translateX(-50%);
+  background:linear-gradient(to bottom,var(--gold-light),var(--gold),var(--rose));
+  box-shadow:0 0 12px rgba(229,201,164,.4);
+  transition:height 1.8s cubic-bezier(.2,.7,.2,1);
+}
+
+.timeline-item{
+  width:50%;
+  padding:0 42px 65px;
+  position:relative;
+}
+
+.timeline-item:nth-child(odd){margin-left:50%}
+
+.timeline-item:nth-child(even){
+  text-align:right;
+}
+
+.timeline-dot{
+  position:absolute;
+  top:5px;
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:var(--gold-light);
+  box-shadow:0 0 0 6px rgba(193,154,112,.1),0 0 20px rgba(229,201,164,.5);
+}
+
+.timeline-item:nth-child(odd) .timeline-dot{left:-6px}
+.timeline-item:nth-child(even) .timeline-dot{right:-6px}
+
+.timeline-item .when{
+  font-size:9px;
+  letter-spacing:3px;
+  color:var(--gold);
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+.timeline-item h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;
+  font-weight:500;
+  color:var(--gold-light);
+  margin-bottom:9px;
+}
+
+.timeline-item p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.9;
+}
+
+/* ENVELOPES */
+
+.letters-section{
+  padding:100px 0;
+  background:radial-gradient(ellipse at 50% 50%,rgba(88,43,65,.17),transparent 65%);
+}
+
+.envelope-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:28px;
+  align-items:start;
+}
+
+.envelope-wrap{
+  text-align:center;
+  perspective:1000px;
+}
+
+.envelope{
+  width:100%;
+  max-width:300px;
+  height:190px;
+  margin:0 auto 20px;
+  position:relative;
+  background:linear-gradient(145deg,#68404b,#351a2a);
+  border:1px solid rgba(229,201,164,.38);
+  box-shadow:0 15px 35px rgba(0,0,0,.28);
+  cursor:pointer;
+  transition:transform .5s,box-shadow .5s;
+}
+
+.envelope:hover{
+  transform:translateY(-7px);
+  box-shadow:0 20px 45px rgba(0,0,0,.38),0 0 25px rgba(193,154,112,.1);
+}
+
+.envelope-back{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,#583345,#2d1725);
+}
+
+.envelope-paper{
+  position:absolute;
+  left:10%;
+  width:80%;
+  height:75%;
+  bottom:8px;
+  background:linear-gradient(135deg,#f0dfc9,#d8c0a7);
+  color:#543546;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:'Parisienne',cursive;
+  font-size:23px;
+  z-index:2;
+  transition:transform 1s cubic-bezier(.2,.8,.2,1),bottom 1s;
+}
+
+.envelope-flap{
+  position:absolute;
+  inset:0;
+  z-index:4;
+  background:#704452;
+  clip-path:polygon(0 0,100% 0,50% 62%);
+  transform-origin:top center;
+  transition:transform .8s ease;
+}
+
+.envelope-front{
+  position:absolute;
+  inset:0;
+  z-index:3;
+  background:linear-gradient(145deg,#704452,#432336);
+  clip-path:polygon(0 0,50% 58%,100% 0,100% 100%,0 100%);
+}
+
+.envelope-seal{
+  position:absolute;
+  z-index:5;
+  top:48%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#e0bd91,#a66d53);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#4a2530;
+  font-size:19px;
+  box-shadow:0 0 18px rgba(193,154,112,.25);
+  transition:opacity .4s,transform .4s;
+}
+
+.envelope.open .envelope-flap{transform:rotateX(180deg);z-index:1}
+.envelope.open .envelope-seal{opacity:0;transform:translate(-50%,-50%) scale(.4)}
+.envelope.open .envelope-paper{transform:translateY(-105px);bottom:0;transition-delay:.4s}
+
+.envelope-label{
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
+  color:var(--gold-light);
+  margin-bottom:7px;
+}
+
+.envelope-hint{
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+.letter-content{
+  display:none;
+  max-width:780px;
+  margin:45px auto 0;
+  padding:42px 35px;
+  background:linear-gradient(145deg,#ead9c4,#d8c0a7);
+  color:#4c3040;
+  border:1px solid rgba(193,154,112,.7);
+  box-shadow:0 20px 65px rgba(0,0,0,.35);
+  animation:letterAppear .8s ease both;
+  position:relative;
+}
+
+.letter-content.show{display:block}
+
+@keyframes letterAppear{
+  from{opacity:0;transform:translateY(25px) scale(.97);filter:blur(5px)}
+  to{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}
+}
+
+.letter-content::before{
+  content:"";
+  position:absolute;
+  inset:10px;
+  border:1px solid rgba(100,59,67,.2);
+  pointer-events:none;
+}
+
+.letter-content h3{
+  font-family:'Parisienne',cursive;
+  font-size:34px;
+  text-align:center;
+  margin-bottom:22px;
+}
+
+.letter-content p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:19px;
+  line-height:1.8;
+  margin-bottom:13px;
+}
+
+.letter-sign{
+  font-family:'Parisienne',cursive;
+  font-size:26px;
+  text-align:right;
+  margin-top:22px;
+}
+
+.close-letter{
+  display:block;
+  margin:25px auto 0;
+  border:1px solid rgba(76,48,64,.5);
+  background:transparent;
+  color:#4c3040;
+  padding:10px 20px;
+  font-size:10px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  transition:.3s;
+}
+
+.close-letter:hover{background:rgba(76,48,64,.1)}
+
+/* CONSTELLATION */
+
+.constellation-section{
+  padding:100px 0;
+  text-align:center;
+  overflow:hidden;
+}
+
+.constellation{
+  position:relative;
+  width:min(650px,95%);
+  height:370px;
+  margin:40px auto 20px;
+  background:
+    radial-gradient(ellipse at center,rgba(80,43,74,.27),transparent 70%);
+}
+
+.constellation svg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  overflow:visible;
+}
+
+.constellation path{
+  fill:none;
+  stroke:rgba(229,201,164,.48);
+  stroke-width:1;
+  stroke-dasharray:500;
+  stroke-dashoffset:500;
+  transition:stroke-dashoffset 3s ease;
+}
+
+.constellation.visible path{stroke-dashoffset:0}
+
+.constellation-star{
+  position:absolute;
+  width:28px;
+  height:28px;
+  border:0;
+  background:transparent;
+  color:var(--gold-light);
+  font-size:20px;
+  transform:translate(-50%,-50%);
+  text-shadow:0 0 12px rgba(229,201,164,.8);
+  transition:transform .3s,color .3s;
+  animation:starPulse 3s ease-in-out infinite;
+}
+
+.constellation-star:hover,.constellation-star.active{
+  transform:translate(-50%,-50%) scale(1.65);
+  color:white;
+}
+
+@keyframes starPulse{
+  0%,100%{filter:brightness(.8)}
+  50%{filter:brightness(1.5)}
+}
+
+.constellation-message{
+  min-height:90px;
+  width:min(550px,92%);
+  margin:20px auto 0;
+  padding:24px;
+  border:1px solid var(--line);
+  background:rgba(43,23,39,.65);
+  opacity:0;
+  transform:translateY(10px);
+  transition:.5s;
+}
+
+.constellation-message.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.constellation-message h3{
+  font-family:'Parisienne',cursive;
+  color:var(--gold-light);
+  font-size:25px;
+  margin-bottom:8px;
+}
+
+.constellation-message p{
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* CLOSING */
+
+.closing{
+  padding:120px 20px 110px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+.closing::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  border:1px solid rgba(193,154,112,.08);
+  border-radius:50%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  box-shadow:0 0 0 35px rgba(193,154,112,.02),0 0 0 75px rgba(193,154,112,.015);
+}
+
+.closing-content{position:relative;z-index:2}
+
+.closing .tiny{
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:24px;
+}
+
+.closing h2{
+  max-width:850px;
+  margin:auto;
+  font-family:'Cormorant Garamond',serif;
+  font-weight:400;
+  font-size:clamp(35px,6vw,65px);
+  line-height:1.12;
+}
+
+.closing h2 em{
+  font-family:'Parisienne',cursive;
+  color:var(--gold-light);
+  font-weight:400;
+}
+
+.closing p{
+  max-width:620px;
+  margin:25px auto 0;
+  font-size:13px;
+  line-height:2;
+  color:var(--muted);
+}
+
+.closing-heart{
+  display:block;
+  margin-top:35px;
+  font-size:25px;
+  color:var(--rose);
+  animation:heartGlow 2.5s ease-in-out infinite;
+}
+
+@keyframes heartGlow{
+  0%,100%{transform:scale(1);text-shadow:0 0 8px rgba(189,137,145,.2)}
+  50%{transform:scale(1.15);text-shadow:0 0 22px rgba(189,137,145,.7)}
+}
+
+/* NAVIGATION */
+
+.bottom-nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  padding:30px 0 45px;
+  border-top:1px solid var(--line);
+}
+
+.nav-button{
+  padding:13px 20px;
+  border:1px solid rgba(193,154,112,.4);
+  color:var(--gold-light);
+  font-size:10px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  transition:.35s;
+}
+
+.nav-button:hover{
+  background:rgba(193,154,112,.12);
+  border-color:var(--gold-light);
+  transform:translateY(-3px);
+}
+
+.footer{
+  text-align:center;
+  padding:0 0 30px;
+  color:#987e83;
+  font-size:10px;
+  letter-spacing:1px;
+}
+
+/* SCROLL REVEALS */
+
+.reveal{
+  opacity:0;
+  transform:translateY(35px);
+  filter:blur(5px);
+  transition:opacity 1s ease,transform 1s cubic-bezier(.2,.7,.2,1),filter 1s ease;
+}
+
+.reveal.is-visible{
+  opacity:1;
+  transform:translateY(0);
+  filter:blur(0);
+}
+
+.reveal-delay-1{transition-delay:.12s}
+.reveal-delay-2{transition-delay:.24s}
+.reveal-delay-3{transition-delay:.36s}
+
+/* RESPONSIVE */
+
+@media(max-width:800px){
+  .dream-grid,.shared-grid{grid-template-columns:repeat(2,1fr)}
+  .envelope-grid{grid-template-columns:1fr;gap:45px}
+  .envelope{max-width:320px}
+  .moon{right:8%;width:75px;height:75px}
+  .moon::after{width:75px;height:75px}
+  .shared-section{padding:65px 20px}
+}
+
+@media(max-width:560px){
+  .hero{min-height:620px;padding-top:90px}
+  .hero h1{font-size:45px}
+  .hero h1 span{font-size:48px}
+  .hero-subtitle{font-size:23px}
+  section{padding:65px 0}
+  .dream-grid,.shared-grid{grid-template-columns:1fr}
+  .dream-card{min-height:220px}
+  .timeline-item{padding:0 25px 55px}
+  .timeline-item h3{font-size:24px}
+  .timeline-item p{font-size:11px}
+  .quote-card{padding:35px 22px}
+  .quote-card p{font-size:24px}
+  .letter-content{padding:35px 23px}
+  .letter-content p{font-size:17px}
+  .constellation{height:290px}
+  .bottom-nav{flex-direction:column}
+  .nav-button{width:100%;text-align:center}
+  .chapter{font-size:8px;letter-spacing:1.5px}
+  .topbar{gap:10px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+  .reveal{opacity:1;transform:none;filter:none}
+}
+</style>
+</head>
+
+<body>
+
+<div class="dust-layer" id="dustLayer"></div>
+
+<div class="sky" aria-hidden="true">
+  <div class="moon"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div class="shooting-star"></div>
+  <div id="skyStars"></div>
+</div>
+
+<div class="page">
+
+<header class="topbar">
+  <a href="page6.html" class="back-link">← Back to the Quiz</a>
+  <span class="chapter">CHAPTER 04 · THE FUTURE WE IMAGINE</span>
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">A little glimpse of tomorrow</div>
+
+    <h1>
+      AND SOMEDAY, WE'LL LOOK BACK AT ALL OF THIS.
+      <span>And smile at how far we've come.</span>
+    </h1>
+
+    <div class="hero-subtitle">For all the little things we haven't experienced yet... ♡</div>
+
+    <p class="hero-description">
+      This chapter is a little different.
+      There are no photographs of these moments, no dates written on their corners.
+      Just dreams, possibilities, and a thousand beautiful things waiting somewhere ahead.
+    </p>
+  </div>
+
+  <div class="scroll-hint">Follow the stars</div>
+</section>
+
+<!-- QUOTE -->
+
+<div class="quote-card reveal">
+  <p>
+    "Some memories are photographs. Some are songs.
+    And some are dreams we're still waiting to live."
+  </p>
+  <span>— A little thought for tomorrow ♡</span>
+</div>
+
+<!-- HER DREAMS -->
+
+<section>
+  <div class="section-heading reveal">
+    <div class="small">First, a universe of your own</div>
+    <h2>Her Little <em>Universe</em></h2>
+    <p>
+      Before anything else, there's you — your dreams, your adventures,
+      and the beautiful person you're becoming.
+    </p>
+  </div>
+
+  <div class="dream-grid">
+
+    <article class="dream-card reveal">
+      <span class="dream-icon">✈️</span>
+      <h3>Places to Discover</h3>
+      <p>
+        All those places you want to see, streets you want to wander,
+        sunsets you want to witness, and little corners of the world
+        waiting for you.
+      </p>
+    </article>
+
+    <article class="dream-card reveal reveal-delay-1">
+      <span class="dream-icon">✧</span>
+      <h3>Big Little Ambitions</h3>
+      <p>
+        The goals you're quietly working towards, the things you want
+        to achieve, and every version of success that makes you proud.
+      </p>
+    </article>
+
+    <article class="dream-card reveal reveal-delay-2">
+      <span class="dream-icon">📖</span>
+      <h3>Stories Yet to Write</h3>
+      <p>
+        New experiences, unexpected opportunities, new people,
+        and chapters that will make your story even more special.
+      </p>
+    </article>
+
+    <article class="dream-card reveal">
+      <span class="dream-icon">🌷</span>
+      <h3>Little Joys</h3>
+      <p>
+        Slow mornings, favourite songs, spontaneous plans,
+        peaceful evenings, and all the ordinary things that
+        make life feel extraordinary.
+      </p>
+    </article>
+
+    <article class="dream-card reveal reveal-delay-1">
+      <span class="dream-icon">🌙</span>
+      <h3>Your Future Self</h3>
+      <p>
+        All the things you'll learn, the confidence you'll build,
+        the courage you'll discover, and the person you'll become.
+      </p>
+    </article>
+
+    <article class="dream-card reveal reveal-delay-2">
+      <span class="dream-icon">⭐</span>
+      <h3>Dream Without Limits</h3>
+      <p>
+        The dreams you haven't even thought of yet.
+        The unexpected possibilities that life might bring.
+        Leave a little room for magic.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- OUR DREAMS -->
+
+<section class="shared-section">
+  <div class="section-heading reveal">
+    <div class="small">A few pages of our tomorrow</div>
+    <h2>A Little World of <em>Ours ♡</em></h2>
+    <p>
+      And somewhere among all those individual dreams,
+      there are little moments we hope to experience together.
+    </p>
+  </div>
+
+  <div class="shared-grid">
+
+    <article class="shared-card reveal">
+      <div class="shared-art">🗺️</div>
+      <h3>Someday, Somewhere</h3>
+      <p>
+        A place neither of us has seen before, a little adventure,
+        and stories we'll bring back home.
+      </p>
+    </article>
+
+    <article class="shared-card reveal reveal-delay-1">
+      <div class="shared-art">🚂</div>
+      <h3>Our First Big Adventure</h3>
+      <p>
+        A journey with no perfect itinerary, lots of excitement,
+        and memories waiting at every stop.
+      </p>
+    </article>
+
+    <article class="shared-card reveal reveal-delay-2">
+      <div class="shared-art">☕</div>
+      <h3>Little Ordinary Days</h3>
+      <p>
+        A cosy café, long conversations, silly jokes,
+        and the kind of day that doesn't need a special occasion.
+      </p>
+    </article>
+
+    <article class="shared-card reveal">
+      <div class="shared-art">🌌</div>
+      <h3>Places We'll Explore</h3>
+      <p>
+        New skies, beautiful views, unfamiliar streets,
+        and a few places that become special to us.
+      </p>
+    </article>
+
+    <article class="shared-card reveal reveal-delay-1">
+      <div class="shared-art">💌</div>
+      <h3>Things We'll Laugh About</h3>
+      <p>
+        Inside jokes, little misunderstandings, funny accidents,
+        and stories we'll keep bringing up.
+      </p>
+    </article>
+
+    <article class="shared-card reveal reveal-delay-2">
+      <div class="shared-art">✨</div>
+      <h3>A Thousand Little Memories</h3>
+      <p>
+        Not just the big milestones, but all the tiny moments
+        that make a life feel full.
+      </p>
+    </article>
+
+  </div>
+</section>
+
+<!-- SOMEDAY TIMELINE -->
+
+<section class="timeline-section">
+  <div class="section-heading reveal">
+    <div class="small">No dates, no deadlines</div>
+    <h2>A Little <em>Someday</em> Timeline</h2>
+    <p>
+      Not a schedule. Not a promise about when.
+      Just a few beautiful possibilities along the way.
+    </p>
+  </div>
+
+  <div class="timeline reveal" id="timeline">
+    <div class="timeline-line"></div>
+    <div class="timeline-progress" id="timelineProgress"></div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="when">One day</div>
+      <h3>A dream comes true</h3>
+      <p>
+        Something you've wished for finally finds its way into your life.
+        And you get to look back and realise you made it happen.
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="when">Someday</div>
+      <h3>A place to remember</h3>
+      <p>
+        A new destination, a beautiful view, and a moment
+        that makes you wish time would slow down.
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="when">Along the way</div>
+      <h3>Little adventures</h3>
+      <p>
+        Spontaneous plans, ordinary days, unexpected laughter,
+        and memories that become favourites without even trying.
+      </p>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="when">Who knows?</div>
+      <h3>Beautiful surprises</h3>
+      <p>
+        The things we haven't imagined yet.
+        The unexpected chapters that might become the best ones.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- LETTERS -->
+
+<section class="letters-section">
+  <div class="section-heading reveal">
+    <div class="small">Sealed with a little hope</div>
+    <h2>Letters From <em>Tomorrow ♡</em></h2>
+    <p>
+      Three little envelopes. Three messages waiting for a future moment.
+      Open them one by one.
+    </p>
+  </div>
+
+  <div class="envelope-grid">
+
+    <div class="envelope-wrap reveal">
+      <div class="envelope" data-envelope="future-her" role="button" tabindex="0" aria-label="Open letter to future you">
+        <div class="envelope-back"></div>
+        <div class="envelope-paper">To Future You ♡</div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-seal">✦</div>
+      </div>
+      <div class="envelope-label">A letter to future you</div>
+      <div class="envelope-hint">TAP TO OPEN</div>
+    </div>
+
+    <div class="envelope-wrap reveal reveal-delay-1">
+      <div class="envelope" data-envelope="future-me" role="button" tabindex="0" aria-label="Open letter to future me">
+        <div class="envelope-back"></div>
+        <div class="envelope-paper">To Future Me ♡</div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-seal">✦</div>
+      </div>
+      <div class="envelope-label">A letter to future me</div>
+      <div class="envelope-hint">TAP TO OPEN</div>
+    </div>
+
+    <div class="envelope-wrap reveal reveal-delay-2">
+      <div class="envelope" data-envelope="future-us" role="button" tabindex="0" aria-label="Open letter to future us">
+        <div class="envelope-back"></div>
+        <div class="envelope-paper">To Future Us ♡</div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-seal">✦</div>
+      </div>
+      <div class="envelope-label">A letter to future us</div>
+      <div class="envelope-hint">TAP TO OPEN</div>
+    </div>
+
+  </div>
+
+  <!-- EDIT YOUR LETTERS BELOW -->
+
+  <div class="letter-content" id="future-her">
+    <h3>Dear Future You...</h3>
+
+    <p>
+      I hope life has been kind to you. I hope you've visited places
+      you've always wanted to see, achieved things you once only
+      imagined, and discovered new reasons to be proud of yourself.
+    </p>
+
+    <p>
+      I hope you still find happiness in little things.
+      I hope you never stop being curious, dreaming, learning,
+      and becoming the person you want to be.
+    </p>
+
+    <p>
+      And whenever life gets a little confusing, I hope you remember
+      how much potential, courage, and possibility you've always carried.
+    </p>
+
+    <div class="letter-sign">Keep shining, birthday girl ♡</div>
+    <button class="close-letter">Close letter ✧</button>
+  </div>
+
+  <div class="letter-content" id="future-me">
+    <h3>Dear Future Me...</h3>
+
+    <p>
+      I hope you've kept growing. I hope you've worked hard for the
+      things that matter, stayed curious, and never stopped building
+      a life you can be proud of.
+    </p>
+
+    <p>
+      I hope you've learned to appreciate the journey, not just
+      the destination. And I hope you've remembered to enjoy the
+      little moments along the way.
+    </p>
+
+    <p>
+      Wherever you are when you read this, I hope you can look back
+      at this version of yourself with a little smile.
+    </p>
+
+    <div class="letter-sign">From an earlier version of me ♡</div>
+    <button class="close-letter">Close letter ✧</button>
+  </div>
+
+  <div class="letter-content" id="future-us">
+    <h3>Dear Future Us...</h3>
+
+    <p>
+      I wonder what life looks like when you're reading this.
+      How many new places have been explored? How many songs
+      have become favourites? How many silly stories have been added?
+    </p>
+
+    <p>
+      I hope we never forget to celebrate the small things.
+      I hope we keep making time for laughter, kindness,
+      new experiences, and the dreams that make life exciting.
+    </p>
+
+    <p>
+      Whatever the future brings, may it give us plenty of
+      beautiful moments to look back on.
+    </p>
+
+    <div class="letter-sign">Here's to the chapters ahead ♡</div>
+    <button class="close-letter">Close letter ✧</button>
+  </div>
+
+</section>
+
+<!-- CONSTELLATION -->
+
+<section class="constellation-section">
+  <div class="section-heading reveal">
+    <div class="small">A sky full of little wishes</div>
+    <h2>Our Wishing <em>Constellation</em></h2>
+    <p>
+      Every star holds a little wish.
+      Choose one and see what it has to say.
+    </p>
+  </div>
+
+  <div class="constellation reveal" id="constellation">
+
+    <svg viewBox="0 0 650 370" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M95 180 L190 90 L285 155 L390 65 L495 145 L555 250 L420 295 L285 245 L190 300 L95 180"/>
+      <path d="M190 90 L190 300"/>
+      <path d="M285 155 L285 245"/>
+      <path d="M390 65 L420 295"/>
+      <path d="M495 145 L285 245"/>
+    </svg>
+
+    <button class="constellation-star" style="left:14.6%;top:48.6%" data-title="A place to visit" data-message="May you find yourself beneath a sky you've always wanted to see, somewhere beautiful and completely new.">✦</button>
+
+    <button class="constellation-star" style="left:29.2%;top:24.3%" data-title="A dream to achieve" data-message="May every little effort take you closer to something you've always wanted.">✧</button>
+
+    <button class="constellation-star" style="left:43.8%;top:41.9%" data-title="A memory to make" data-message="May life surprise you with a moment so lovely that you wish you could pause time.">✦</button>
+
+    <button class="constellation-star" style="left:60%;top:17.6%" data-title="A thousand possibilities" data-message="May you always have the courage to explore new paths and discover what makes you happy.">✧</button>
+
+    <button class="constellation-star" style="left:76.2%;top:39.2%" data-title="A little happiness" data-message="May your days be filled with peaceful mornings, favourite songs, warm laughter, and reasons to smile.">✦</button>
+
+    <button class="constellation-star" style="left:85.4%;top:67.6%" data-title="A wish for us" data-message="May the chapters ahead bring new experiences, kind moments, and plenty of beautiful stories.">✧</button>
+
+    <button class="constellation-star" style="left:64.6%;top:79.7%" data-title="A beautiful surprise" data-message="May the future hold something wonderful that neither of us has even thought of yet.">✦</button>
+
+    <button class="constellation-star" style="left:43.8%;top:66.2%" data-title="Always keep dreaming" data-message="May you never feel that your dreams are too big, too unusual, or too far away.">✧</button>
+
+    <button class="constellation-star" style="left:29.2%;top:81.1%" data-title="A wish for your heart" data-message="May you find peace, confidence, genuine happiness, and people who celebrate the person you are.">✦</button>
+
+  </div>
+
+  <div class="constellation-message" id="constellationMessage">
+    <h3 id="wishTitle">Choose a star ♡</h3>
+    <p id="wishText">A little wish is waiting for you.</p>
+  </div>
+</section>
+
+<!-- CLOSING -->
+
+<section class="closing">
+  <div class="closing-content reveal">
+    <div class="tiny">And this is only the beginning</div>
+
+    <h2>
+      WE HAVEN'T LIVED THESE MOMENTS YET.
+      <em>But I hope life has something beautiful waiting for you.</em>
+    </h2>
+
+    <p>
+      Until then, keep dreaming, keep growing, keep becoming
+      everything you wish to be. And let's see what beautiful
+      little chapters come next.
+    </p>
+
+    <span class="closing-heart">♡</span>
+  </div>
+</section>
+
+<!-- NAVIGATION -->
+
+<nav class="bottom-nav">
+  <a href="page6.html" class="nav-button">← Back to Birthday Quiz</a>
+  <a href="page8.html" class="nav-button">Next Chapter · Hidden Surprises →</a>
+</nav>
+
+<footer class="footer">
+  MADE OF LITTLE DREAMS, GOLDEN STARS & A LOT OF LOVE ♡
+</footer>
+
+</div>
+
+<script>
+/* GOLDEN DUST */
+
+const dustLayer = document.getElementById("dustLayer");
+
+for(let i=0;i<38;i++){
+  const dust=document.createElement("span");
+  dust.className="gold-dust";
+  dust.style.left=Math.random()*100+"%";
+  dust.style.setProperty("--time",(9+Math.random()*12)+"s");
+  dust.style.setProperty("--wait",(-Math.random()*18)+"s");
+  dust.style.setProperty("--drift",(Math.random()*100-50)+"px");
+  dust.style.width=(1+Math.random()*3)+"px";
+  dust.style.height=dust.style.width;
+  dustLayer.appendChild(dust);
+}
+
+/* BACKGROUND STARS */
+
+const skyStars=document.getElementById("skyStars");
+
+for(let i=0;i<75;i++){
+  const star=document.createElement("span");
+  star.className="star";
+  star.style.left=Math.random()*100+"%";
+  star.style.top=Math.random()*100+"%";
+  star.style.setProperty("--duration",(2+Math.random()*4)+"s");
+  star.style.setProperty("--delay",(-Math.random()*5)+"s");
+  const size=1+Math.random()*2;
+  star.style.width=size+"px";
+  star.style.height=size+"px";
+  skyStars.appendChild(star);
+}
+
+/* SCROLL REVEALS */
+
+const revealElements=document.querySelectorAll(".reveal");
+
+if("IntersectionObserver" in window){
+  const observer=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  },{threshold:.12});
+
+  revealElements.forEach(el=>observer.observe(el));
+}else{
+  revealElements.forEach(el=>el.classList.add("is-visible"));
+}
+
+/* TIMELINE DRAWING */
+
+const timeline=document.getElementById("timeline");
+const timelineProgress=document.getElementById("timelineProgress");
+
+if("IntersectionObserver" in window){
+  const timelineObserver=new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        timelineProgress.style.height="100%";
+        timelineObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.2});
+
+  timelineObserver.observe(timeline);
+}else{
+  timelineProgress.style.height="100%";
+}
+
+/* ENVELOPE INTERACTIONS */
+
+const envelopes=document.querySelectorAll(".envelope");
+const letters=document.querySelectorAll(".letter-content");
+
+function closeAllLetters(){
+  envelopes.forEach(envelope=>envelope.classList.remove("open"));
+  letters.forEach(letter=>letter.classList.remove("show"));
+}
+
+envelopes.forEach(envelope=>{
+  function openEnvelope(){
+    const targetId=envelope.dataset.envelope;
+    const targetLetter=document.getElementById(targetId);
+    const isAlreadyOpen=envelope.classList.contains("open");
+
+    closeAllLetters();
+
+    if(!isAlreadyOpen){
+      envelope.classList.add("open");
+
+      setTimeout(()=>{
+        targetLetter.classList.add("show");
+        targetLetter.scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+      },650);
+    }
+  }
+
+  envelope.addEventListener("click",openEnvelope);
+
+  envelope.addEventListener("keydown",event=>{
+    if(event.key==="Enter" || event.key===" "){
+      event.preventDefault();
+      openEnvelope();
+    }
+  });
+});
+
+document.querySelectorAll(".close-letter").forEach(button=>{
+  button.addEventListener("click",()=>{
+    closeAllLetters();
+  });
+});
+
+/* CONSTELLATION */
+
+const constellation=document.getElementById("constellation");
+const stars=document.querySelectorAll(".constellation-star");
+const wishTitle=document.getElementById("wishTitle");
+const wishText=document.getElementById("wishText");
+const wishPanel=document.getElementById("constellationMessage");
+
+if("IntersectionObserver" in window){
+  const constellationObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        constellation.classList.add("visible");
+        constellationObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:.3});
+
+  constellationObserver.observe(constellation);
+}else{
+  constellation.classList.add("visible");
+}
+
+stars.forEach(star=>{
+  star.addEventListener("click",()=>{
+    stars.forEach(s=>s.classList.remove("active"));
+    star.classList.add("active");
+
+    wishTitle.textContent=star.dataset.title;
+    wishText.textContent=star.dataset.message;
+
+    wishPanel.classList.remove("show");
+
+    requestAnimationFrame(()=>{
+      wishPanel.classList.add("show");
+    });
+  });
+});
+</script>
+
+</body>
+</html>

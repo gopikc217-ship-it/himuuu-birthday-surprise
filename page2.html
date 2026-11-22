@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#160d12">
+  <title>Himani's Secret Entry ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Parisienne&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #160d12;
+      --cherry: #281019;
+      --wine: #4b182b;
+      --wine-light: #70283e;
+      --gold: #b28a68;
+      --gold-soft: #d5b7a5;
+      --paper: #ead8c5;
+      --ink: #2c1720;
+      --muted: #c7aeb0;
+      --rose: #b77b83;
+    }
+    * { box-sizing: border-box; }
+    html { min-height: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--paper);
+      font-family: "Lato", sans-serif;
+      background:
+        radial-gradient(ellipse at 18% 15%, rgba(112,40,62,.28), transparent 34%),
+        radial-gradient(ellipse at 82% 85%, rgba(75,24,43,.35), transparent 38%),
+        linear-gradient(135deg, #10090d, var(--night) 48%, #211019);
+      display: grid;
+      place-items: center;
+      padding: 34px 18px;
+      overflow-x: hidden;
+      position: relative;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .13;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      mix-blend-mode: soft-light;
+    }
+    .ambient {
+      position: fixed;
+      color: rgba(213,183,165,.16);
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(90px, 17vw, 220px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .ambient.one { top: -55px; left: 3vw; transform: rotate(-18deg); }
+    .ambient.two { bottom: -85px; right: 4vw; transform: rotate(16deg); }
+    .wrap { width: min(760px, 100%); position: relative; z-index: 1; }
+    .topline {
+      text-align: center;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .28em;
+      font-size: 10px;
+      margin-bottom: 16px;
+    }
+    .scrap {
+      position: relative;
+      padding: clamp(28px, 6vw, 58px);
+      background:
+        linear-gradient(145deg, rgba(250,235,220,.98), rgba(224,202,181,.97)),
+        var(--paper);
+      color: var(--ink);
+      box-shadow: 0 24px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(178,138,104,.45);
+      transform: rotate(-.35deg);
+      isolation: isolate;
+    }
+    .scrap::before, .scrap::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .scrap::before {
+      inset: 10px;
+      border: 1px solid rgba(105,54,62,.35);
+    }
+    .scrap::after {
+      width: 112px;
+      height: 112px;
+      top: -22px;
+      right: 28px;
+      background: linear-gradient(135deg, rgba(183,123,131,.75), rgba(75,24,43,.9));
+      clip-path: polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);
+      opacity: .9;
+      box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    }
+    .seal {
+      position: absolute;
+      top: 20px;
+      right: 56px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 30%, #a94d5e, #5a172b 70%);
+      border: 2px solid rgba(213,183,165,.8);
+      color: #e8c9b4;
+      display: grid;
+      place-items: center;
+      font-family: "Parisienne", cursive;
+      font-size: 27px;
+      z-index: 2;
+      box-shadow: 0 3px 9px rgba(0,0,0,.24);
+    }
+    .eyebrow {
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: #80505a;
+      margin: 7px 0 15px;
+    }
+    h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-weight: 600;
+      font-size: clamp(39px, 7vw, 66px);
+      line-height: .98;
+      letter-spacing: .015em;
+      color: #381522;
+      max-width: 570px;
+      margin: 0 0 12px;
+    }
+    .script {
+      font-family: "Parisienne", cursive;
+      font-size: clamp(25px, 4vw, 34px);
+      color: #8b4658;
+      margin: 0 0 24px;
+    }
+    .intro {
+      font-size: 15px;
+      line-height: 1.85;
+      max-width: 560px;
+      color: #4d3438;
+      margin: 0 auto 25px;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 13px;
+      color: #9a6a6b;
+      margin: 23px 0;
+      font-size: 15px;
+    }
+    .divider::before, .divider::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(90deg, transparent, rgba(107,55,65,.5));
+    }
+    .divider::after { transform: rotate(180deg); }
+    .lock {
+      font-size: 30px;
+      margin-bottom: 6px;
+      filter: sepia(.3);
+    }
+    label {
+      display: block;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: #80505a;
+      margin: 0 0 9px;
+      font-weight: 700;
+    }
+    .input-row { display: flex; gap: 10px; max-width: 490px; margin: 0 auto; }
+    input {
+      min-width: 0;
+      flex: 1;
+      padding: 15px 17px;
+      border: 1px solid rgba(91,43,55,.45);
+      border-radius: 2px;
+      background: rgba(255,250,244,.72);
+      color: #381522;
+      font: 700 13px "Lato", sans-serif;
+      letter-spacing: .16em;
+      outline: none;
+      text-align: center;
+      transition: box-shadow .2s, border-color .2s;
+    }
+    input:focus { border-color: #8b4658; box-shadow: 0 0 0 3px rgba(139,70,88,.13); }
+    input::placeholder { color: #a98d89; letter-spacing: .12em; font-weight: 400; }
+    button {
+      border: 1px solid #6b2a3d;
+      border-radius: 2px;
+      padding: 14px 19px;
+      background: linear-gradient(135deg, #6b263c, #3e1425);
+      color: #f3e3d4;
+      font: 700 10px "Lato", sans-serif;
+      letter-spacing: .13em;
+      cursor: pointer;
+      transition: transform .2s, box-shadow .2s, background .2s;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 7px 17px rgba(65,20,37,.22); }
+    button:focus-visible { outline: 3px solid #b28a68; outline-offset: 3px; }
+    .hint {
+      font-size: 13px;
+      color: #77535a;
+      margin: 16px 0 0;
+      line-height: 1.6;
+    }
+    .hint em { font-family: "Parisienne", cursive; font-size: 20px; color: #8b4658; font-style: normal; }
+    .feedback {
+      min-height: 27px;
+      margin: 15px 0 0;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #7a293e;
+      font-weight: 700;
+    }
+    .success {
+      display: none;
+      margin: 18px auto 0;
+      max-width: 490px;
+      padding: 17px;
+      border: 1px dashed rgba(107,42,61,.55);
+      background: rgba(255,250,244,.52);
+      animation: appear .45s ease both;
+    }
+    .success.show { display: block; }
+    .success strong {
+      display: block;
+      font-family: "Cormorant Garamond", serif;
+      color: #5b1b30;
+      font-size: 27px;
+      font-weight: 600;
+      margin-bottom: 3px;
+    }
+    .success p { margin: 0 0 13px; color: #65444a; font-size: 13px; line-height: 1.6; }
+    .next { display: inline-block; text-decoration: none; }
+    .footer {
+      text-align: center;
+      color: rgba(213,183,165,.72);
+      font-size: 11px;
+      letter-spacing: .12em;
+      margin-top: 23px;
+    }
+    .footer span { color: var(--gold); }
+    @keyframes appear { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    @media (max-width: 540px) {
+      body { padding: 22px 13px; }
+      .scrap { padding: 38px 23px 30px; }
+      .scrap::after { width: 82px; height: 82px; right: 20px; top: -16px; }
+      .seal { width: 43px; height: 43px; right: 39px; top: 13px; font-size: 23px; }
+      .input-row { flex-direction: column; }
+      .input-row button { min-height: 48px; }
+      .intro { font-size: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient one" aria-hidden="true">✦</div>
+  <div class="ambient two" aria-hidden="true">❧</div>
+
+  <main class="wrap">
+    <div class="topline">A little detour before the magic begins</div>
+    <section class="scrap" aria-labelledby="page-title">
+      <div class="seal" aria-hidden="true">H</div>
+      <p class="eyebrow">Note for the birthday girl · 02</p>
+      <div class="lock" aria-hidden="true">♙</div>
+      <h1 id="page-title">HOLD ON, PRETTY LADYYY!</h1>
+      <p class="script">A secret before the big surprise ♡</p>
+
+      <p class="intro">
+        OHHH, YOU THOUGHT YOU COULD JUST WALK IN? Hehehe! Not so easily, Every little thing in this place has been made with you in mind. But before you discover what's waiting inside, there's one little secret only you can unlock.
+      </p>
+
+      <div class="divider" aria-hidden="true">✦</div>
+
+      <div class="lock" aria-hidden="true">⌑</div>
+      <label for="secret-code">The secret code</label>
+      <form id="unlock-form" autocomplete="off">
+        <div class="input-row">
+          <input id="secret-code" name="secret-code" type="password"
+                 placeholder="ENTER YOUR SECRET CODE" aria-describedby="code-hint feedback"
+                 maxlength="30" required>
+          <button type="submit">UNLOCK MY LITTLE WORLD ♡</button>
+        </div>
+      </form>
+      <p class="hint" id="code-hint">Psst... think of a date that's special to us. <em>You'll know it Babyyy ♡</em></p>
+      <p class="feedback" id="feedback" role="status" aria-live="polite"></p>
+
+      <div class="success" id="success-panel" aria-live="polite">
+        <strong>Yeahhhiiiiieeeeeee! THAT'S MY GIRLLLL! ♡</strong>
+        <p>Access granted, pretty lady. Your little birthday world is waiting just beyond this page.</p>
+        <a class="next" href="page3.html"><button type="button">CONTINUE TO YOUR WORLD →</button></a>
+      </div>
+    </section>
+    <p class="footer">made with lots of love <span>✦</span> just for you</p>
+  </main>
+
+  <script>
+    // A playful birthday gate, not secure authentication.
+    // Change this value later if you decide on a different secret code.
+    const SECRET_CODE = "072126";
+
+    const form = document.getElementById("unlock-form");
+    const input = document.getElementById("secret-code");
+    const feedback = document.getElementById("feedback");
+    const successPanel = document.getElementById("success-panel");
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+      const enteredCode = input.value.trim().toUpperCase();
+
+      if (enteredCode === SECRET_CODE) {
+        feedback.textContent = "";
+        successPanel.classList.add("show");
+        input.disabled = true;
+        form.querySelector("button").disabled = true;
+        form.querySelector("button").style.opacity = ".55";
+        form.querySelector("button").style.cursor = "default";
+      } else {
+        successPanel.classList.remove("show");
+        feedback.textContent = "EXCUSE MEEEE? TRY AGAIN, MISSY. 😭";
+        input.select();
+      }
+    });
+  </script>
+</body>
+</html>

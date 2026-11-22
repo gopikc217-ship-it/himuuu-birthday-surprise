@@ -1,0 +1,1405 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sweet Seventeen ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lato:wght@300;400;700&family=Parisienne&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --black: #160d12;
+    --cherry: #281019;
+    --wine: #4b182b;
+    --wine2: #70283e;
+    --gold: #b28a68;
+    --soft-gold: #d5b7a5;
+    --paper: #ead8c5;
+    --muted: #c7aeb0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at 15% 15%, #51203355, transparent 40%),
+        radial-gradient(ellipse at 85% 70%, #4b182b40, transparent 40%),
+        var(--black);
+    color: var(--paper);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+/* BACKGROUND */
+
+.dust-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.dust {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--soft-gold);
+    border-radius: 50%;
+    box-shadow: 0 0 9px 2px #b28a6870;
+    animation: dustFloat linear infinite;
+}
+
+@keyframes dustFloat {
+    0% {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    15% { opacity: .5; }
+    80% { opacity: .3; }
+    100% {
+        transform: translateY(-110vh) translateX(35px);
+        opacity: 0;
+    }
+}
+
+.page {
+    position: relative;
+    z-index: 1;
+    width: min(1100px, 92%);
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+.top-nav {
+    padding: 30px 0;
+}
+
+.nav-link {
+    color: var(--soft-gold);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.nav-link:hover {
+    color: white;
+    letter-spacing: 3px;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 65px 15px 55px;
+    animation: heroIn 1.3s ease both;
+}
+
+@keyframes heroIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.chapter {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-bottom: 22px;
+}
+
+.seventeen {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(100px, 20vw, 180px);
+    line-height: .8;
+    color: var(--soft-gold);
+    text-shadow: 0 0 45px #b28a6840;
+    animation: numberGlow 4s ease-in-out infinite;
+}
+
+@keyframes numberGlow {
+    0%, 100% { text-shadow: 0 0 25px #b28a6820; }
+    50% { text-shadow: 0 0 55px #d5b7a555; }
+}
+
+.hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(35px, 6vw, 58px);
+    font-weight: 500;
+    letter-spacing: 5px;
+    margin-top: 28px;
+}
+
+.script {
+    font-family: 'Parisienne', cursive;
+    font-size: 30px;
+    color: var(--soft-gold);
+    margin-top: 12px;
+}
+
+.hero-description {
+    max-width: 560px;
+    margin: 20px auto 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2;
+    font-weight: 300;
+}
+
+/* DECORATIVE DIVIDER */
+
+.ornament {
+    text-align: center;
+    color: var(--gold);
+    letter-spacing: 12px;
+    font-size: 17px;
+    margin: 30px 0;
+}
+
+/* INTRO CARD */
+
+.intro-card {
+    max-width: 650px;
+    margin: 0 auto 55px;
+    padding: 35px 30px;
+    background: linear-gradient(145deg, #ead8c50c, #70283e18);
+    border: 1px solid #b28a6845;
+    text-align: center;
+    position: relative;
+}
+
+.intro-card::before,
+.intro-card::after {
+    content: "✦";
+    position: absolute;
+    color: var(--gold);
+    font-size: 18px;
+}
+
+.intro-card::before {
+    top: 12px;
+    left: 15px;
+}
+
+.intro-card::after {
+    bottom: 12px;
+    right: 15px;
+}
+
+.intro-card p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    line-height: 1.7;
+    color: var(--paper);
+}
+
+.intro-card .small-note {
+    font-family: 'Lato', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-top: 20px;
+}
+
+/* QUIZ AREA */
+
+.quiz-wrapper {
+    max-width: 760px;
+    margin: auto;
+    padding: 0 10px;
+}
+
+.quiz-topline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--soft-gold);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.progress-track {
+    width: 100%;
+    height: 3px;
+    background: #ffffff16;
+    margin-bottom: 35px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--wine2), var(--soft-gold));
+    transition: width .6s ease;
+}
+
+.quiz-card {
+    position: relative;
+    background:
+        linear-gradient(145deg, #ead8c50b, #70283e20),
+        #21131a;
+    border: 1px solid #b28a6855;
+    padding: clamp(25px, 6vw, 50px);
+    min-height: 390px;
+    box-shadow: 0 25px 65px #0006;
+    animation: cardIn .6s ease;
+}
+
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.question-number {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 24px;
+}
+
+.question-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 38px);
+    line-height: 1.3;
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.answer {
+    border: 1px solid #b28a6850;
+    background: #ffffff06;
+    color: var(--paper);
+    padding: 17px 15px;
+    text-align: left;
+    font-family: 'Lato', sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+.answer:hover:not(:disabled) {
+    background: #70283e55;
+    border-color: var(--soft-gold);
+    transform: translateY(-3px);
+}
+
+.answer.selected {
+    background: #70283e80;
+    border-color: var(--soft-gold);
+    color: white;
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+.answer.correct {
+    border-color: #b5a77d;
+    background: #b5a77d20;
+}
+
+.answer.wrong {
+    border-color: #a76c75;
+    background: #a76c7520;
+}
+
+.answer-letter {
+    color: var(--gold);
+    margin-right: 9px;
+    font-size: 11px;
+}
+
+.feedback {
+    min-height: 30px;
+    text-align: center;
+    margin-top: 25px;
+    font-family: 'Parisienne', cursive;
+    color: var(--soft-gold);
+    font-size: 24px;
+}
+
+.next-area {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.gold-button {
+    padding: 15px 34px;
+    border: 1px solid var(--gold);
+    background: linear-gradient(120deg, var(--wine), #35131f);
+    color: var(--paper);
+    font-size: 11px;
+    letter-spacing: 3px;
+    cursor: pointer;
+    transition: .35s;
+    text-decoration: none;
+}
+
+.gold-button:hover {
+    background: var(--wine2);
+    box-shadow: 0 0 25px #b28a6830;
+    transform: translateY(-3px);
+}
+
+.gold-button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* SECTION MESSAGE */
+
+.milestone {
+    display: none;
+    text-align: center;
+    padding: 65px 20px;
+    margin: 50px auto;
+    max-width: 650px;
+    border-top: 1px solid #b28a6845;
+    border-bottom: 1px solid #b28a6845;
+    animation: heroIn .9s ease;
+}
+
+.milestone.show {
+    display: block;
+}
+
+.milestone h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 37px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.milestone p {
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 14px;
+}
+
+/* FINISH SCREEN */
+
+.finish-screen {
+    display: none;
+    max-width: 750px;
+    margin: 60px auto;
+    padding: 55px 25px;
+    text-align: center;
+    background: linear-gradient(145deg, #ead8c510, #70283e30);
+    border: 1px solid #b28a6860;
+    animation: heroIn 1s ease;
+}
+
+.finish-screen.show {
+    display: block;
+}
+
+.finish-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 115px;
+    color: var(--soft-gold);
+    line-height: 1;
+}
+
+.finish-screen h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(30px, 5vw, 43px);
+    font-weight: 500;
+    margin: 20px 0;
+}
+
+.finish-screen p {
+    color: var(--muted);
+    line-height: 2;
+    font-size: 14px;
+    max-width: 500px;
+    margin: auto;
+}
+
+.final-script {
+    font-family: 'Parisienne', cursive;
+    font-size: 32px;
+    color: var(--soft-gold);
+    margin: 28px 0;
+}
+
+/* SCRAPBOOK PHOTO FRAMES */
+
+.memory-section {
+    padding: 70px 0 45px;
+}
+
+.section-title {
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 35px;
+    font-weight: 500;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: center;
+}
+
+.polaroid {
+    background: #e7d4c2;
+    padding: 9px 9px 14px;
+    transform: rotate(var(--tilt));
+    box-shadow: 0 15px 35px #0008;
+    transition: .5s ease;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+}
+
+.photo-placeholder {
+    aspect-ratio: 4 / 5;
+    background:
+        linear-gradient(#28101988, #160d1299),
+        repeating-linear-gradient(
+            45deg,
+            #b28a6820 0px,
+            #b28a6820 1px,
+            transparent 1px,
+            transparent 8px
+        );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    color: var(--soft-gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    overflow: hidden;
+}
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-placeholder:has(img[src]) {
+    background: #281019;
+}
+
+.polaroid-label {
+    color: #4b182b;
+    font-family: 'Parisienne', cursive;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 9px;
+}
+
+.decorative-note {
+    text-align: center;
+    color: var(--soft-gold);
+    font-family: 'Parisienne', cursive;
+    font-size: 25px;
+    margin: 50px 0;
+    animation: floatNote 5s ease-in-out infinite;
+}
+
+@keyframes floatNote {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-8px) rotate(2deg); }
+}
+
+/* FOOTER */
+
+footer {
+    text-align: center;
+    padding: 65px 15px 35px;
+    border-top: 1px solid #b28a6825;
+    margin-top: 50px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 11px;
+    letter-spacing: 2px;
+    line-height: 2;
+}
+
+footer .footer-script {
+    font-family: 'Parisienne', cursive;
+    color: var(--soft-gold);
+    font-size: 27px;
+    margin-bottom: 15px;
+}
+
+.bottom-nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    padding: 25px 0 45px;
+}
+
+/* SCROLL REVEAL */
+
+.reveal {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(20px);
+    transition: opacity .8s ease, transform .8s ease, filter .8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+    .hero {
+        padding-top: 45px;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .memory-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 17px;
+    }
+
+    .quiz-card {
+        padding: 27px 20px;
+    }
+
+    .intro-card {
+        padding: 30px 20px;
+    }
+
+    .bottom-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+
+    .reveal {
+        opacity: 1;
+        filter: none;
+        transform: none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="dust-layer" aria-hidden="true"></div>
+
+<div class="page">
+
+    <!-- TOP NAVIGATION -->
+    <nav class="top-nav">
+        <a href="page5.html" class="nav-link">← BACK TO MUSIC CORNER</a>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="chapter">CHAPTER 04 · THE BIRTHDAY EDITION</div>
+
+        <div class="seventeen">17</div>
+
+        <h1>SWEET SEVENTEEN</h1>
+
+        <div class="script">A little game for my birthday girl ♡</div>
+
+        <p class="hero-description">
+            Seventeen years of being you.
+            Seventeen little questions to celebrate the girl
+            behind all those beautiful little things.
+        </p>
+    </header>
+
+    <div class="ornament">✦ ───── ♡ ───── ✦</div>
+
+    <!-- INTRODUCTION -->
+    <section class="intro-card reveal">
+        <p>
+            Well, well, well… look who's here.
+            The birthday girl herself.
+            Let's see how much you know about the
+            wonderful little universe that is YOU.
+            And perhaps… a tiny bit about us.
+        </p>
+
+        <div class="small-note">17 QUESTIONS · ONE BIRTHDAY GIRL</div>
+    </section>
+
+    <!-- QUIZ -->
+    <main class="quiz-wrapper" id="quizArea">
+
+        <div class="quiz-topline">
+            <span>YOUR LITTLE ADVENTURE</span>
+            <span id="questionCounter">01 / 17</span>
+        </div>
+
+        <div class="progress-track">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+
+        <section class="quiz-card" id="quizCard">
+
+            <div class="question-number" id="questionLabel">
+                QUESTION 01
+            </div>
+
+            <h2 class="question-text" id="questionText">
+                ENTER YOUR PERSONALISED QUESTION HERE
+            </h2>
+
+            <div class="answers" id="answerContainer"></div>
+
+            <div class="feedback" id="feedback"></div>
+
+            <div class="next-area">
+                <button class="gold-button" id="nextButton" disabled>
+                    NEXT QUESTION →
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- HALF-WAY MESSAGE -->
+    <section class="milestone" id="milestone">
+        <div class="chapter">A LITTLE PAUSE ♡</div>
+
+        <h2>Halfway through, birthday girl.</h2>
+
+        <p>
+            And somehow, there's still so much more
+            to discover about you.
+            Keep going, there's a little more magic waiting.
+        </p>
+
+        <div class="ornament">✦ ♡ ✦</div>
+
+        <button class="gold-button" id="continueButton">
+            CONTINUE MY LITTLE ADVENTURE →
+        </button>
+    </section>
+
+    <!-- FINISH SCREEN -->
+    <section class="finish-screen" id="finishScreen">
+
+        <div class="chapter">THE END OF OUR LITTLE GAME</div>
+
+        <div class="finish-number">17</div>
+
+        <h2>17 little things that make you, YOU.</h2>
+
+        <p>
+            And that's seventeen little questions for a girl
+            who's just beginning another beautiful chapter.
+
+            Never stop being wonderfully, unapologetically YOU.
+            There's so much ahead of you, and I hope this new
+            chapter brings you endless reasons to smile.
+        </p>
+
+        <div class="final-script">
+            Happy Sweet Seventeen ♡
+        </div>
+
+        <div class="ornament">✦ ───── ♡ ───── ✦</div>
+
+        <button class="gold-button" onclick="location.href='page7.html'">
+            NEXT CHAPTER →
+        </button>
+
+    </section>
+
+    <!-- SCRAPBOOK PHOTOS -->
+    <section class="memory-section reveal">
+
+        <h2 class="section-title">A Little Birthday Scrapbook</h2>
+
+        <p class="section-subtitle">
+            A FEW LITTLE PIECES OF YOUR WORLD ♡
+        </p>
+
+        <div class="memory-grid">
+
+            <div class="polaroid" style="--tilt:-5deg">
+                <div class="photo-placeholder">
+                    <img src="page6-photo-01.jpg"
+                         alt="Birthday memory"
+                         onerror="this.style.display='none'">
+                    <span>PHOTO 01<br>ADD YOUR MEMORY</span>
+                </div>
+                <div class="polaroid-label">a little forever ♡</div>
+            </div>
+
+            <div class="polaroid" style="--tilt:4deg">
+                <div class="photo-placeholder">
+                    <img src="page6-photo-02.jpg"
+                         alt="Birthday memory"
+                         onerror="this.style.display='none'">
+                    <span>PHOTO 02<br>ADD YOUR MEMORY</span>
+                </div>
+                <div class="polaroid-label">my favourite view</div>
+            </div>
+
+            <div class="polaroid" style="--tilt:-3deg">
+                <div class="photo-placeholder">
+                    <img src="page6-photo-03.jpg"
+                         alt="Birthday memory"
+                         onerror="this.style.display='none'">
+                    <span>PHOTO 03<br>ADD YOUR MEMORY</span>
+                </div>
+                <div class="polaroid-label">little moments</div>
+            </div>
+
+        </div>
+
+        <div class="decorative-note">
+            "Some people are their own little universe." ♡
+        </div>
+
+        <div class="memory-grid">
+
+            <div class="polaroid" style="--tilt:4deg">
+                <div class="photo-placeholder">
+                    <img src="page6-photo-04.jpg"
+                         alt="Birthday memory"
+                         onerror="this.style.display='none'">
+                    <span>PHOTO 04<br>ADD YOUR MEMORY</span>
+                </div>
+                <div class="polaroid-label">one to remember</div>
+            </div>
+
+            <div class="polaroid" style="--tilt:-4deg">
+                <div class="photo-placeholder">
+                    <img src="page6-photo-05.jpg"
+                         alt="Birthday memory"
+                         onerror="this.style.display='none'">
+                    <span>PHOTO 05<br>ADD YOUR MEMORY</span>
+                </div>
+                <div class="polaroid-label">the birthday girl</div>
+            </div>
+
+            <div class="polaroid" style="--tilt:3deg">
+                <div class="photo-placeholder">
+                    <img src="page6-photo-06.jpg"
+                         alt="Birthday memory"
+                         onerror="this.style.display='none'">
+                    <span>PHOTO 06<br>ADD YOUR MEMORY</span>
+                </div>
+                <div class="polaroid-label">forever favourite ♡</div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-script">Made for the girl of the day ♡</div>
+        <p>SEVENTEEN LOOKS BEAUTIFUL ON YOU</p>
+    </footer>
+
+    <!-- BOTTOM NAV -->
+    <div class="bottom-nav">
+        <a href="page5.html" class="nav-link">← BACK TO MUSIC CORNER</a>
+        <a href="page7.html" class="nav-link">OUR DREAMS →</a>
+    </div>
+
+</div>
+
+<script>
+
+/* =====================================
+   PERSONALISE YOUR 17 QUESTIONS HERE
+   =====================================
+
+   question:
+   Write your own question.
+
+   answers:
+   Replace the four options.
+
+   correct:
+   0 = first answer
+   1 = second answer
+   2 = third answer
+   3 = fourth answer
+
+   Set correct to null if you don't want
+   a right/wrong answer for that question.
+
+   category:
+   her = about her
+   us  = about your relationship
+
+*/
+
+const questions = [
+
+    // THE GIRL HERSELF — 7 QUESTIONS
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE WORLD",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    // HER LITTLE UNIVERSE — 6 QUESTIONS
+
+    {
+        category: "HER LITTLE UNIVERSE",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE UNIVERSE",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE UNIVERSE",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE UNIVERSE",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE UNIVERSE",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "HER LITTLE UNIVERSE",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    // A LITTLE US — 4 QUESTIONS
+
+    {
+        category: "A LITTLE US ♡",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "A LITTLE US ♡",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "A LITTLE US ♡",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    },
+
+    {
+        category: "A LITTLE US ♡",
+        question: "ENTER YOUR PERSONALISED QUESTION HERE",
+        answers: [
+            "ENTER ANSWER OPTION 1",
+            "ENTER ANSWER OPTION 2",
+            "ENTER ANSWER OPTION 3",
+            "ENTER ANSWER OPTION 4"
+        ],
+        correct: null
+    }
+
+];
+
+
+/* =====================================
+   QUIZ ENGINE
+   ===================================== */
+
+let currentQuestion = 0;
+let score = 0;
+let answered = false;
+let selectedAnswer = null;
+
+const questionText = document.getElementById("questionText");
+const questionLabel = document.getElementById("questionLabel");
+const answerContainer = document.getElementById("answerContainer");
+const feedback = document.getElementById("feedback");
+const nextButton = document.getElementById("nextButton");
+const progressFill = document.getElementById("progressFill");
+const questionCounter = document.getElementById("questionCounter");
+
+const quizCard = document.getElementById("quizCard");
+const quizArea = document.getElementById("quizArea");
+
+const milestone = document.getElementById("milestone");
+const continueButton = document.getElementById("continueButton");
+const finishScreen = document.getElementById("finishScreen");
+
+
+function loadQuestion() {
+
+    answered = false;
+    selectedAnswer = null;
+
+    const q = questions[currentQuestion];
+
+    questionLabel.textContent =
+        q.category + " · QUESTION " +
+        String(currentQuestion + 1).padStart(2, "0");
+
+    questionCounter.textContent =
+        String(currentQuestion + 1).padStart(2, "0") +
+        " / 17";
+
+    questionText.textContent = q.question;
+
+    progressFill.style.width =
+        (currentQuestion / questions.length * 100) + "%";
+
+    feedback.textContent = "";
+    answerContainer.innerHTML = "";
+
+    nextButton.disabled = true;
+
+    nextButton.textContent =
+        currentQuestion === 16
+        ? "FINISH OUR LITTLE GAME ♡"
+        : "NEXT QUESTION →";
+
+    q.answers.forEach((answer, index) => {
+
+        const button = document.createElement("button");
+
+        button.className = "answer";
+
+        const letter = ["A", "B", "C", "D"][index];
+
+        const letterSpan = document.createElement("span");
+        letterSpan.className = "answer-letter";
+        letterSpan.textContent = letter + ".";
+
+        button.appendChild(letterSpan);
+        button.appendChild(document.createTextNode(" " + answer));
+
+        button.addEventListener("click", () => {
+            selectAnswer(index);
+        });
+
+        answerContainer.appendChild(button);
+
+    });
+
+    quizCard.style.animation = "none";
+    void quizCard.offsetWidth;
+    quizCard.style.animation = "cardIn .6s ease";
+}
+
+
+function selectAnswer(selectedIndex) {
+
+    if (answered) return;
+
+    const q = questions[currentQuestion];
+
+    const buttons = answerContainer.querySelectorAll(".answer");
+
+    // Keep the latest choice; allow changing it until Next Question.
+    selectedAnswer = selectedIndex;
+
+    buttons.forEach(button => {
+        button.disabled = false;
+        button.classList.remove("selected", "correct", "wrong");
+    });
+
+    const correctIndex = q.correct;
+
+    if (correctIndex === null) {
+
+        buttons[selectedIndex].classList.add("selected");
+
+        const reactions = [
+            "Ohooo, interesting choice! ♡",
+            "Hehehe, that's a cute answer.",
+            "Noted, birthday girl!",
+            "I wonder why you chose that one..."
+        ];
+
+        feedback.textContent =
+            reactions[Math.floor(Math.random() * reactions.length)];
+
+    } else if (selectedIndex === correctIndex) {
+
+        buttons[selectedIndex].classList.add("correct");
+
+        feedback.textContent = "YAYYYY! YOU GOT IT RIGHT! ♡";
+
+    } else {
+
+        buttons[selectedIndex].classList.add("wrong");
+        buttons[correctIndex].classList.add("correct");
+
+        feedback.textContent = "Hehehe, close enough! ♡";
+
+    }
+
+    nextButton.disabled = false;
+
+}
+
+
+function finishQuiz() {
+
+    progressFill.style.width = "100%";
+
+    quizArea.style.display = "none";
+    milestone.classList.remove("show");
+    finishScreen.classList.add("show");
+
+    window.scrollTo({
+        top: finishScreen.offsetTop - 50,
+        behavior: "smooth"
+    });
+
+}
+
+
+nextButton.addEventListener("click", () => {
+
+    if (selectedAnswer === null) return;
+
+    answered = true;
+
+    if (questions[currentQuestion].correct !== null &&
+        selectedAnswer === questions[currentQuestion].correct) {
+        score++;
+    }
+
+    const buttons = answerContainer.querySelectorAll(".answer");
+    buttons.forEach(button => {
+        button.disabled = true;
+    });
+
+    if (currentQuestion === 8) {
+
+        quizArea.style.display = "none";
+        milestone.classList.add("show");
+
+        window.scrollTo({
+            top: milestone.offsetTop - 50,
+            behavior: "smooth"
+        });
+
+        currentQuestion++;
+
+        return;
+    }
+
+    if (currentQuestion === 16) {
+        finishQuiz();
+        return;
+    }
+
+    currentQuestion++;
+
+    loadQuestion();
+
+    window.scrollTo({
+        top: quizArea.offsetTop - 40,
+        behavior: "smooth"
+    });
+
+});
+
+
+continueButton.addEventListener("click", () => {
+
+    milestone.classList.remove("show");
+    quizArea.style.display = "block";
+
+    loadQuestion();
+
+    window.scrollTo({
+        top: quizArea.offsetTop - 40,
+        behavior: "smooth"
+    });
+
+});
+
+
+/* =====================================
+   GOLDEN DUST
+   ===================================== */
+
+const dustLayer = document.querySelector(".dust-layer");
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+
+    for (let i = 0; i < 35; i++) {
+
+        const particle = document.createElement("span");
+
+        particle.className = "dust";
+
+        particle.style.left = Math.random() * 100 + "%";
+        particle.style.top = Math.random() * 100 + "%";
+
+        particle.style.animationDuration =
+            (10 + Math.random() * 15) + "s";
+
+        particle.style.animationDelay =
+            (-Math.random() * 20) + "s";
+
+        dustLayer.appendChild(particle);
+
+    }
+
+}
+
+
+/* =====================================
+   SCROLL REVEAL
+   ===================================== */
+
+const revealElements = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+
+    const observer = new IntersectionObserver((entries, observer) => {
+
+        entries.forEach(entry => {
+
+            if (entry.isIntersecting) {
+
+                entry.target.classList.add("visible");
+
+                observer.unobserve(entry.target);
+
+            }
+
+        });
+
+    }, {
+        threshold: 0.12
+    });
+
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+
+} else {
+
+    revealElements.forEach(element => {
+        element.classList.add("visible");
+    });
+
+}
+
+
+/* START THE QUIZ */
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
